@@ -4,6 +4,7 @@ import clsx from 'clsx'
 
 export function Logomark({
   invert = false,
+  filled,
   ...props
 }: React.ComponentPropsWithoutRef<'svg'> & {
   invert?: boolean
@@ -20,6 +21,8 @@ export function Logomark({
 export function Logo({
   className,
   invert = false,
+  filled,
+  fillOnHover,
   ...props
 }: React.ComponentPropsWithoutRef<'div'> & {
   invert?: boolean

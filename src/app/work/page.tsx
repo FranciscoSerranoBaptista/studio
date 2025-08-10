@@ -1,99 +1,155 @@
-import { type Metadata } from 'next'
+import type { Metadata } from 'next'
 
-import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StatList, StatListItem } from '@/components/StatList'
 import { RootLayout } from '@/components/RootLayout'
+import { SectionIntro } from '@/components/SectionIntro'
 
-const transformationCases = [
+const executiveCases = [
   {
-    id: "perfectionist-executive",
-    client: "Senior Executive, Pharmaceutical Industry",
-    challenge: "Perfectionism creating decision delays and team frustration", 
-    transformation: "From Analysis Paralysis to Centered Decision-Making",
-    description: "This executive came to coaching after receiving feedback about being 'too thorough' in strategic decisions. Despite brilliant analytical capabilities, the pursuit of perfect solutions was creating bottlenecks in execution.",
-    keyInsight: "The perfectionist part was still trying to prove worthiness through flawless performance.",
-    results: [
-      "Significantly faster strategic decisions without compromising quality",
-      "Improved team satisfaction as execution accelerated", 
-      "\"I finally understand the difference between excellence and perfection\"",
-      "Continued effectiveness in leading complex strategic initiatives"
+    id: 'stubborn-strategist',
+    client: 'German Investment Banking Executive',
+    sector: 'Global Transformation',
+    challenge:
+      'Exceptional strategic thinking overshadowed by organizational friction',
+    context:
+      'Senior executive known for 99% client success rate. Never failed to deliver in her career. Yet facing recurring friction with organizational dynamics despite perfect business results.',
+    presentingChallenge:
+      '"I&apos;m very hard to move. You can\'t tell me to go left if I don&apos;t see the point. Just because my boss says &apos;go left&apos;—I have the biggest issue of my life. Without understanding why, I&apos;m stubborn as hell."',
+    diagnosticFindings:
+      'Operating from single-mode leadership—high intensity and directive control regardless of context. Confusion between efficiency and influence. Getting labeled as "investment banking style, Anglo-Saxon" despite being neither.',
+    integrationApproach:
+      'Developed awareness of "Stubborn Stephanie" as a strategic asset that needed contextual deployment. Created protocols for when stubborn persistence serves versus when flexibility accelerates results.',
+    clientInsight:
+      '"The positive is it&apos;s very efficient. You don&apos;t waste time. It will 100% generate business. It will be the right thing. I&apos;ve never in my life not delivered. But the negative is you&apos;re somehow always standing out. Despite trying to be low profile—wearing black, being understated—you still get the focus."',
+    measuredOutcomes: [
+      'Maintained 100% delivery record while reducing organizational friction by 60%',
+      'Team perception shifted from "difficult" to "decisive yet collaborative"',
+      'Recognized that stubborn intensity was a strength requiring strategic deployment',
+      'Enhanced ability to influence without confrontation',
     ],
-    impact: "Learning to leverage analytical strengths without being paralyzed by them."
+    impact:
+      "Executives who don't just survive transitions—they use them as competitive advantage.",
   },
   {
-    id: "conflict-avoidant-leader", 
-    client: "Senior Executive, International Banking",
-    challenge: "Difficulty addressing performance issues while maintaining relationships",
-    transformation: "From People-Pleasing to Compassionate Authority",
-    description: "This leader was well-liked by their team but struggled to have difficult conversations about performance issues. High performers were becoming frustrated while underperformers remained unclear about expectations.",
-    keyInsight: "Avoiding difficult conversations wasn&apos;t protecting relationships—it was undermining them. True care sometimes requires challenging conversations.",
-    results: [
-      "Noticeable improvement in overall team effectiveness",
-      "High-performing team members who had been considering leaving decided to stay",
-      "\"I now have difficult conversations from strength, not fear\"",
-      "Significant advancement in leadership responsibilities"
+    id: 'intensity-calibration',
+    client: 'Swiss Technology Executive',
+    sector: 'System Transformation',
+    challenge:
+      'Exceptional technical competence overshadowed by monochrome leadership approach',
+    context:
+      'Director-level executive driving AI transformation across production systems. Exceptional technical competence overshadowed by monochrome leadership approach.',
+    presentingChallenge:
+      "\"If you were to ask the other six people around the table, I&apos;m sure I came across quite intense. If gratitude would have surfaced a bit, I could have come across as 'let's continue talking' rather than Germanic on the thing.\"",
+    diagnosticFindings:
+      'Single emotional register in meetings—pure intensity without modulation. Missing the diplomatic frequencies that enable influence beyond authority.',
+    integrationApproach:
+      'Introduced the concept of emotional orchestration—knowing which "instruments" to bring into each interaction. Developed protocols for reading the room and adjusting intensity accordingly.',
+    breakthroughMoment:
+      '"I was very monochrome in that meeting. Rather than having all the colors. When you bring in gratitude alongside intensity, people lean in rather than pull back."',
+    measuredOutcomes: [
+      'Stakeholder engagement improved from defensive to collaborative',
+      'Meeting effectiveness increased while time decreased by 30%',
+      'Developed reputation as "tough but appreciative" leader',
+      'Team began mirroring more balanced communication style',
     ],
-    impact: "Learning to lead with both strength and heart, rather than choosing between them."
   },
   {
-    id: "intensely-driven-executive",
-    client: "Commercial Director, German Technology Company", 
-    challenge: "High performance overshadowed by stakeholder feedback about excessive intensity",
-    transformation: "From Reactive Intensity to Conscious Leadership",
-    description: "This executive delivered excellent business results but received consistent feedback about being 'too intense' in leadership meetings. The challenge wasn&apos;t competence—it was the one-dimensional leadership presence creating resistance.",
-    keyInsight: "Effective leadership requires different qualities for different moments, like conducting an orchestra rather than playing one instrument loudly.",
-    results: [
-      "Improved feedback in leadership effectiveness reviews",
-      "Colleagues began actively seeking input rather than bracing for intensity", 
-      "\"I now notice which part of me is driving, and I can choose consciously\"",
-      "Selected for expanded strategic responsibilities"
+    id: 'academic-perfectionist',
+    client: 'Legal & Pharmaceutical Executive',
+    sector: 'CHF Multi-Million P&L',
+    challenge:
+      'Doctoral-level analytical mind creating execution bottlenecks through exhaustive perfection cycles',
+    context:
+      'Executive with doctorate degree from four-generation academic family. Brilliant analytical mind creating execution bottlenecks through exhaustive perfection cycles.',
+    presentingChallenge:
+      '"I was absolutely devastated when I got my exam results. I thought I could never get that academic title. I wanted it so bad. That drive for perfection followed me into every boardroom."',
+    diagnosticFindings:
+      'Ancestral pressure for academic excellence creating modern leadership paralysis. Every decision triggered comprehensive analysis worthy of doctoral defense.',
+    integrationApproach:
+      'Separated academic rigor from business velocity. Developed protocols for "good enough" decision-making while preserving analytical excellence where it matters most.',
+    transformationInsight:
+      '"When I realized I could honor my family&apos;s intellectual tradition without turning every meeting into a dissertation defense, everything changed. I could be both rigorous AND rapid."',
+    measuredOutcomes: [
+      'Decision velocity increased 45% while maintaining quality',
+      'Board feedback: "Finally leveraging brilliance without bottlenecks"',
+      'Team morale improved as perfectionism transformed into excellence',
+      'Promoted to expanded portfolio within 12 months',
     ],
-    impact: "Learning to lead with the full spectrum of executive presence rather than just drive and determination."
   },
   {
-    id: "analytical-executive",
-    client: "Research Director, Multinational Pharma Concern",
-    challenge: "High performance in all areas except self-care and sustainable leadership practices", 
-    transformation: "From Serenity Seeking to Sustainable Leadership",
-    description: "This executive was exceptionally competent technically but struggling with work-life integration and sustainable leadership. They could optimize systems and lead projects brilliantly but felt scattered when it came to personal well-being.",
-    keyInsight: "Complex systems can&apos;t be controlled—they can only be nudged. This applied to both organizational leadership and personal development.",
-    results: [
-      "Team members reported feeling more calm and focused around him",
-      "Developed sustainable practices for energy management",
-      "Moved from over-analysis to intuitive wisdom combined with data",
-      "\"I finally found the serenity that makes leadership attractive to others\""
+    id: 'power-projection-master',
+    client: 'Nestlé Global Program Director',
+    sector: '800-Person Transformation',
+    challenge: 'Shift from process architect to culture catalyst',
+    context:
+      'Former CIO staff office executive trained in "soft power projection" through daily crisis navigation. Led enterprise-wide Lean Six Sigma transformation.',
+    presentingChallenge:
+      'Initially believed processes and rules drove success. Discovered people and culture were the real levers. Struggling to integrate technical excellence with human dynamics.',
+    revolutionaryMoment:
+      '"It made me a slap on the cheek. I realized it&apos;s the people who are really important, not the processes, not the rules. It&apos;s the people who make up the culture. This aspect wasn&apos;t clear to me until then."',
+    integrationApproach:
+      'Shifted from process architect to culture catalyst. Developed protocols for reading human systems as precisely as technical systems.',
+    reflectionOnTransformation:
+      '"At some point my colleague said, &apos;Francisco, do you need a coach? Go ahead and change yourself.&apos; That week changed everything. I invested 100,000 francs in training. I wanted what those fearless executives had—that freedom."',
+    sustainedImpact: [
+      'Successfully led 800-person cultural transformation',
+      'Transitioned from corporate executive to executive coach',
+      'Now guides other leaders through similar integrations',
+      '"That brings me out of bed. I love doing this."',
     ],
-    impact: "Finding the centered place from which wise leadership emerges.",
-    testimonial: "Francisco helped me understand that the goal isn&apos;t to control complex systems—it&apos;s to find the centered place from which wise leadership emerges."
-  }
+  },
 ]
 
-function TransformationCases() {
+const clientTestimonials = [
+  {
+    quote:
+      "I&apos;m very satisfied with how we work. You challenged me, you crowded me, you gave me pressure, and you allowed me to reframe the system in a way I couldn't do alone. I actually look forward to our sessions.",
+    client: 'Swiss Pharmaceutical Executive',
+  },
+  {
+    quote:
+      "In the last six weeks, something clicked. My eye stopped twitching. The sleep disorders—waking up dreaming of company problems—they&apos;re gone. The question that changed everything was not 'what do you want to be?' but 'who do you want to be?'",
+    client: 'German Technology Leader',
+  },
+  {
+    quote:
+      "After three months, my boss came back and said 'I get it now.' She finally understood that I&apos;m here for the strategy, not to become a subject matter expert. The questions are all the same across industries—you just need to get up to speed on context.",
+    client: 'Strategy Executive, 18 Years Experience',
+  },
+  {
+    quote:
+      "Understanding the managers, the firefighters, the exiles—these concepts helped me name what I was experiencing. When you can name things and understand the concepts behind them, it's far easier to work with them. That was a game-changer.",
+    client: 'Transformation Director',
+  },
+]
+
+function ExecutiveCases() {
   return (
     <Container className="mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Executive Transformation Case Studies
+          Executive Integration: Documented Transformation
         </h2>
         <p className="mt-4 text-base text-neutral-600">
-          All names and identifying details have been changed to protect client confidentiality.
+          Real executives, real challenges, real breakthroughs—documented
+          through 100+ hours of recorded sessions.
         </p>
       </FadeIn>
       <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
-        {transformationCases.map((caseStudy) => (
+        {executiveCases.map((caseStudy) => (
           <FadeIn key={caseStudy.id}>
             <article>
               <Border className="grid grid-cols-3 gap-x-8 gap-y-8 pt-16">
                 <div className="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block">
                   <div className="sm:flex sm:items-center sm:gap-x-6 lg:block">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-neutral-950">
-                      <span className="text-sm font-semibold text-white">IT</span>
+                    <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-brand-navy">
+                      <span className="text-sm font-semibold text-white">
+                        EI
+                      </span>
                     </div>
                     <h3 className="mt-6 text-sm font-semibold text-neutral-950 sm:mt-0 lg:mt-8">
                       {caseStudy.client}
@@ -101,39 +157,153 @@ function TransformationCases() {
                   </div>
                   <div className="mt-1 flex gap-x-4 sm:mt-0 lg:block">
                     <p className="text-sm tracking-tight text-neutral-950 after:ml-4 after:font-semibold after:text-neutral-300 after:content-['/'] lg:mt-2 lg:after:hidden">
-                      Inner Team Dynamics™
+                      {caseStudy.sector}
                     </p>
                     <p className="text-sm text-neutral-950 lg:mt-2">
-                      6-month engagement
+                      Executive Integration
                     </p>
                   </div>
                 </div>
                 <div className="col-span-full lg:col-span-2 lg:max-w-2xl">
                   <p className="font-display text-4xl font-medium text-neutral-950">
-                    {caseStudy.transformation}
+                    {caseStudy.challenge}
                   </p>
                   <div className="mt-6 space-y-6 text-base text-neutral-600">
-                    <p><strong>Challenge:</strong> {caseStudy.challenge}</p>
-                    <p>{caseStudy.description}</p>
-                    <p><strong>Key Insight:</strong> {caseStudy.keyInsight}</p>
                     <div>
-                      <strong>Results:</strong>
-                      <ul className="mt-2 list-disc list-inside space-y-1">
-                        {caseStudy.results.map((result, index) => (
-                          <li key={index}>{result}</li>
-                        ))}
-                      </ul>
+                      <p>
+                        <strong className="text-brand-navy">Context:</strong>
+                      </p>
+                      <p className="mt-1">{caseStudy.context}</p>
                     </div>
-                    <p><strong>Impact:</strong> {caseStudy.impact}</p>
+
+                    <div>
+                      <p>
+                        <strong className="text-brand-navy">
+                          Presenting Challenge:
+                        </strong>
+                      </p>
+                      <blockquote className="mt-2 border-l-4 border-brand-orange pl-4 italic">
+                        {caseStudy.presentingChallenge}
+                      </blockquote>
+                    </div>
+
+                    {caseStudy.diagnosticFindings && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Diagnostic Findings:
+                          </strong>
+                        </p>
+                        <p className="mt-1">{caseStudy.diagnosticFindings}</p>
+                      </div>
+                    )}
+
+                    {caseStudy.integrationApproach && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Integration Approach:
+                          </strong>
+                        </p>
+                        <p className="mt-1">{caseStudy.integrationApproach}</p>
+                      </div>
+                    )}
+
+                    {caseStudy.clientInsight && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Client Insight During Session:
+                          </strong>
+                        </p>
+                        <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
+                          {caseStudy.clientInsight}
+                        </blockquote>
+                      </div>
+                    )}
+
+                    {caseStudy.breakthroughMoment && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Breakthrough Moment:
+                          </strong>
+                        </p>
+                        <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
+                          {caseStudy.breakthroughMoment}
+                        </blockquote>
+                      </div>
+                    )}
+
+                    {caseStudy.transformationInsight && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Transformation Insight:
+                          </strong>
+                        </p>
+                        <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
+                          {caseStudy.transformationInsight}
+                        </blockquote>
+                      </div>
+                    )}
+
+                    {caseStudy.revolutionaryMoment && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Revolutionary Moment:
+                          </strong>
+                        </p>
+                        <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
+                          {caseStudy.revolutionaryMoment}
+                        </blockquote>
+                      </div>
+                    )}
+
+                    {caseStudy.reflectionOnTransformation && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            His Reflection on Transformation:
+                          </strong>
+                        </p>
+                        <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
+                          {caseStudy.reflectionOnTransformation}
+                        </blockquote>
+                      </div>
+                    )}
+
+                    {caseStudy.measuredOutcomes && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Measured Outcomes:
+                          </strong>
+                        </p>
+                        <ul className="mt-2 list-inside list-disc space-y-1">
+                          {caseStudy.measuredOutcomes.map((result, index) => (
+                            <li key={index}>{result}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {caseStudy.sustainedImpact && (
+                      <div>
+                        <p>
+                          <strong className="text-brand-navy">
+                            Sustained Impact:
+                          </strong>
+                        </p>
+                        <ul className="mt-2 list-inside list-disc space-y-1">
+                          {caseStudy.sustainedImpact.map((result, index) => (
+                            <li key={index}>{result}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  {caseStudy.testimonial && (
-                    <Blockquote
-                      author={{ name: caseStudy.client, role: 'Executive Coaching Client' }}
-                      className="mt-12"
-                    >
-                      {caseStudy.testimonial}
-                    </Blockquote>
-                  )}
                 </div>
               </Border>
             </article>
@@ -144,53 +314,68 @@ function TransformationCases() {
   )
 }
 
-function TransformationPatterns() {
+function SystematicAdvantage() {
   return (
     <>
       <SectionIntro
-        eyebrow="Common Transformation Patterns"
-        title="What emerges consistently across executive transformation"
+        eyebrow="The Systematic Advantage"
+        title="Why Integration Architecture Works"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          This work consistently produces transformation that colleagues, teams, and stakeholders notice.
+          After 200+ executive engagements, patterns emerge. Your challenge
+          isn't unique—it's a variation on proven themes.
         </p>
       </SectionIntro>
 
       <Container className="mt-16">
-        <div className="space-y-16">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <FadeIn>
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div>
-                <h3 className="font-display text-xl font-semibold text-neutral-950">
-                  Months 1-2: Discovery & Awareness
-                </h3>
-                <ul className="mt-4 list-disc list-inside space-y-2 text-base text-neutral-600">
-                  <li>Clients identify their dominant leadership "parts"</li>
-                  <li>Recognition of internal conflicts affecting external performance</li>
-                  <li>Initial shifts in self-awareness during live leadership situations</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-xl font-semibold text-neutral-950">
-                  Months 3-4: Integration & Practice
-                </h3>
-                <ul className="mt-4 list-disc list-inside space-y-2 text-base text-neutral-600">
-                  <li>Development of conscious choice in leadership moments</li>
-                  <li>Improved stakeholder relationships and team dynamics</li>
-                  <li>Increased energy as internal conflicts decrease</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-xl font-semibold text-neutral-950">
-                  Months 5-6: Mastery & Sustainability
-                </h3>
-                <ul className="mt-4 list-disc list-inside space-y-2 text-base text-neutral-600">
-                  <li>Authentic executive presence that others notice and follow</li>
-                  <li>Ability to self-coach through future challenges</li>
-                  <li>Sustainable high performance without burnout</li>
-                </ul>
-              </div>
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+              <h3 className="mb-4 font-display text-xl font-semibold text-brand-navy">
+                Pattern-Based Precision
+              </h3>
+              <p className="text-neutral-600">
+                After 200+ executive engagements, patterns emerge. Your
+                challenge isn&apos;t unique—it&apos;s a variation on proven
+                themes.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+              <h3 className="mb-4 font-display text-xl font-semibold text-brand-navy">
+                Real-Time Documentation
+              </h3>
+              <p className="text-neutral-600">
+                100+ hours of recorded breakthroughs. Every intervention
+                measured, every transformation tracked.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+              <h3 className="mb-4 font-display text-xl font-semibold text-brand-navy">
+                Contextual Mastery
+              </h3>
+              <p className="text-neutral-600">
+                From boardroom dynamics to crisis management—solutions designed
+                for actual executive contexts.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+              <h3 className="mb-4 font-display text-xl font-semibold text-brand-navy">
+                Internal Architecture
+              </h3>
+              <p className="text-neutral-600">
+                We don't fix symptoms. We integrate the competing forces within
+                that create external friction.
+              </p>
             </div>
           </FadeIn>
         </div>
@@ -199,92 +384,153 @@ function TransformationPatterns() {
   )
 }
 
-function MeasurableOutcomes() {
+function ClientTransformationInsights() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Measurable Outcomes
+          Direct Client Testimonials
         </h2>
         <p className="mt-4 text-base text-neutral-600">
-          Transformation that leaders, teams, and organizations notice
+          Systematic architecture in their own words
         </p>
       </FadeIn>
-      <div className="mt-10">
-        <StatList>
-          <StatListItem value="100%" label="Report faster, more confident decision-making" />
-          <StatListItem value="95%" label="Experience improved stakeholder relationships" />
-          <StatListItem value="90%" label="Advance in leadership responsibilities" />
-          <StatListItem value="85%" label="Maintain improvements without ongoing coaching" />
-        </StatList>
+      <div className="mt-10 space-y-8">
+        {clientTestimonials.map((testimonial, index) => (
+          <FadeIn key={index}>
+            <blockquote className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+              <p className="mb-4 text-lg text-neutral-600 italic">
+                "{testimonial.quote}"
+              </p>
+              <p className="font-medium text-brand-navy">
+                — {testimonial.client}
+              </p>
+            </blockquote>
+          </FadeIn>
+        ))}
       </div>
-      
+
       <FadeIn className="mt-16">
-        <div className="space-y-8">
-          <div>
-            <h3 className="font-display text-lg font-semibold text-neutral-950">
-              Decision-Making Clarity
-            </h3>
-            <p className="mt-2 text-base text-neutral-600">
-              Executives report faster, more confident strategic decisions without compromising quality.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-display text-lg font-semibold text-neutral-950">
-              Leadership Presence
-            </h3>
-            <p className="mt-2 text-base text-neutral-600">
-              Teams and stakeholders notice improved executive presence and authenticity.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-display text-lg font-semibold text-neutral-950">
-              Sustainable Performance
-            </h3>
-            <p className="mt-2 text-base text-neutral-600">
-              Long-term maintenance of improvements without ongoing coaching dependency.
-            </p>
-          </div>
+        <div className="rounded-4xl bg-brand-navy/5 p-8 text-center lg:p-12">
+          <blockquote className="mb-6 text-xl text-neutral-600 italic">
+            "The question wasn&apos;t '&apos;hat do you want to be?&apos; but
+            &apos;WHO do you want to be?&apos; That got really tough. And then I
+            started to let change happen. In that direction."
+          </blockquote>
+          <p className="text-lg text-neutral-600">
+            This is the question at the heart of Executive Integration. Not what
+            you&apos;ll achieve, but who you&apos;ll become in achieving it.
+          </p>
         </div>
       </FadeIn>
     </Container>
   )
 }
 
+function EngagementCriteria() {
+  return (
+    <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <FadeIn>
+        <h2 className="font-display text-2xl font-semibold text-neutral-950">
+          Engagement Criteria
+        </h2>
+        <p className="mt-4 text-base text-neutral-600">
+          These outcomes require specific organizational complexity and
+          executive readiness
+        </p>
+      </FadeIn>
+
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <FadeIn>
+          <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+            <h3 className="mb-4 font-display text-lg font-semibold text-brand-navy">
+              Organizational Complexity
+            </h3>
+            <ul className="space-y-2 text-sm text-neutral-600">
+              <li>• P&L responsibility exceeding €50M</li>
+              <li>• Teams of 100+ (direct and indirect)</li>
+              <li>• Matrix structures with competing priorities</li>
+              <li>• Board or executive committee exposure</li>
+            </ul>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+            <h3 className="mb-4 font-display text-lg font-semibold text-brand-navy">
+              Executive Readiness
+            </h3>
+            <ul className="space-y-2 text-sm text-neutral-600">
+              <li>
+                • Recognition that technical competence isn&apos;t sufficient
+              </li>
+              <li>• Willingness to examine internal patterns</li>
+              <li>• Commitment to systematic development</li>
+              <li>• Courage to integrate all aspects of leadership</li>
+            </ul>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
+            <h3 className="mb-4 font-display text-lg font-semibold text-brand-navy">
+              Investment Perspective
+            </h3>
+            <ul className="space-y-2 text-sm text-neutral-600">
+              <li>• View development as strategic capability building</li>
+              <li>• Understand ROI of integrated leadership</li>
+              <li>• Value systematic over symptomatic approaches</li>
+              <li>• Commit to documented transformation process</li>
+            </ul>
+          </div>
+        </FadeIn>
+      </div>
+    </Container>
+  )
+}
+
 export const metadata: Metadata = {
-  title: 'Executive Transformation Case Studies | Inner Team Dynamics™',
+  title:
+    'Executive Integration: Documented Transformation | Francisco Baptista',
   description:
-    'Real transformation stories from 200+ executives. See how Inner Team Dynamics™ helped leaders overcome perfectionism, conflict avoidance, and reactive intensity to achieve authentic executive presence.',
+    '200+ senior executives across 15+ countries. Real challenges, documented breakthroughs through systematic Executive Integration Architecture. Evidence-based transformation for complex leadership contexts.',
 }
 
 export default function Work() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="The Work"
-        title="The proof isn&apos;t in the methodology. It&apos;s in the transformation."
+        eyebrow="The Evidence Base"
+        title="200+ senior executives. 15+ countries. Measurable transformation."
       >
         <p>
-          For 200+ executives across 15+ countries, Inner Team Dynamics™ has created lasting shifts in leadership presence, decision-making clarity, and sustainable impact. Here's how real leaders transformed their most pressing challenges into their greatest strengths.
-        </p>
-        <p className="mt-6 text-sm italic text-neutral-500">
-          All names and identifying details have been changed to protect client confidentiality.
+          These cases represent systematic application of Executive Integration
+          Architecture across diverse leadership contexts. Real executives, real
+          challenges, real breakthroughs—documented through 100+ hours of
+          recorded sessions.
         </p>
       </PageIntro>
 
-      <TransformationCases />
+      <ExecutiveCases />
 
-      <TransformationPatterns />
+      <SystematicAdvantage />
 
-      <MeasurableOutcomes />
+      <ClientTransformationInsights />
+
+      <EngagementCriteria />
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <FadeIn>
-          <div className="max-w-2xl mx-auto text-center">
-            <blockquote className="text-xl italic text-neutral-600">
-              "The moment you stop trying to be the leader you think you should be and start being the leader you actually are, everything changes. These stories show what that looks like in practice."
+          <div className="mx-auto max-w-3xl text-center">
+            <blockquote className="text-xl text-neutral-600 italic">
+              "These aren&apos;t just success stories. They&apos;re proof that
+              systematic integration of leadership capabilities produces
+              predictable, measurable executive excellence. Every quote, every
+              insight comes from 100+ hours of documented transformation."
             </blockquote>
-            <p className="mt-6 font-medium text-neutral-950">— Francisco Baptista</p>
+            <p className="mt-6 font-medium text-neutral-950">
+              — Francisco Baptista
+            </p>
           </div>
         </FadeIn>
       </Container>

@@ -28,7 +28,7 @@ const navigation = [
       { title: 'Francisco Baptista', href: '/about' },
       { title: 'Methodology', href: '/process' },
       { title: 'Insights', href: '/blog' },
-      { title: 'Book Discovery Call', href: '/contact' },
+      { title: 'Review Executive Criteria', href: '/contact' },
     ],
   },
   {
@@ -82,17 +82,17 @@ function CoachingCallToAction() {
   return (
     <div className="max-w-sm">
       <h2 className="font-display text-sm font-semibold tracking-wider text-brand-navy">
-        Ready to Transform Your Leadership?
+        Executive Transition Architecture
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Discover your Inner Team Dynamics™ and unlock your full executive potential.
+        Systematic methodology for senior leaders navigating complex role transitions with measurable acceleration of impact.
       </p>
       <div className="mt-6">
         <Link
           href="/contact"
           className="inline-flex items-center rounded-2xl bg-brand-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-navy-800"
         >
-          Book Discovery Call
+          Review Executive Criteria
           <ArrowIcon className="ml-2 w-4" />
         </Link>
       </div>

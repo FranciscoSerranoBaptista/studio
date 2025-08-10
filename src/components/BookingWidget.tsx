@@ -66,7 +66,7 @@ export function BookingWidget() {
       
       // Load the iframe
       setTimeout(() => {
-        const iframe = document.getElementById("od-widget-e2a0c042f1af36fa53d5f0eee4b1d782eaeb82c03db13995125c532aeb5ae4ea")
+        const iframe = document.getElementById("od-widget-e2a0c042f1af36fa53d5f0eee4b1d782eaeb82c03db13995125c532aeb5ae4ea") as HTMLIFrameElement
         if(iframe && iframe.dataset.src) {
           iframe.src = iframe.dataset.src
         }
@@ -106,7 +106,7 @@ export function BookingWidget() {
             border: 'none',
             borderRadius: '12px'
           }}
-          title="Book Discovery Call"
+          title="Executive Transition Assessment"
         />
       </div>
     </FadeIn>
