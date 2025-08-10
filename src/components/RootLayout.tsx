@@ -75,8 +75,8 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
-            Review Executive Criteria
+          <Button href="/assessment" invert={invert}>
+            Request Assessment
           </Button>
           <button
             ref={toggleRef}
@@ -137,12 +137,12 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">The Work</NavigationItem>
-        <NavigationItem href="/about">The Coach</NavigationItem>
+        <NavigationItem href="/about">About</NavigationItem>
+        <NavigationItem href="/process">Process</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">The Process</NavigationItem>
-        <NavigationItem href="/blog">The Ideas</NavigationItem>
+        <NavigationItem href="/resources">Resources</NavigationItem>
+        <NavigationItem href="/assessment">Assessment</NavigationItem>
       </NavigationRow>
     </nav>
   )
