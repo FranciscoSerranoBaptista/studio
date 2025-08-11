@@ -39,7 +39,7 @@ const resources = [
     value: 'Value: Stakeholder alignment methodology',
     action: 'Download Case Study',
     gated: true,
-    href: '/assets/Executive Case Study - Global Professional Services.pdf',
+    href: '/assets/Executive%20Case%20Study%20-%20Global%20Professional%20Services.pdf',
     details:
       'How a Managing Director navigated complex stakeholder dynamics while scaling operations across multiple markets. Documented transformation process and measurable outcomes.',
   },
@@ -51,7 +51,7 @@ const resources = [
     value: 'Value: Change management framework',
     action: 'Download Case Study',
     gated: true,
-    href: '/assets/Executive Case Study - Manufacturing.pdf',
+    href: '/assets/Executive%20Case%20Study%20-%20Manufacturing.pdf',
     details:
       'Executive leading major operational transformation while managing legacy systems and cultural resistance. Systematic approach to integration and team alignment.',
   },
@@ -63,7 +63,7 @@ const resources = [
     value: 'Value: Scaling methodology insights',
     action: 'Download Case Study', 
     gated: true,
-    href: '/assets/Executive Case Study - Technology ScaleUp.pdf',
+    href: '/assets/Executive%20Case%20Study%20-%20Technology%20ScaleUp.pdf',
     details:
       'CTO navigating hypergrowth challenges while building high-performance engineering culture. Evidence-based approach to leadership scalability and team dynamics.',
   },
