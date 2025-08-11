@@ -5,7 +5,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
-import imageFranciscoBaptista from '@/images/francisco-baptista.jpg'
+import imageFranciscoBaptista from '@/images/personal/Francisco022.jpg'
 
 
 
@@ -34,28 +34,40 @@ export default function About() {
       </PageIntro>
 
       <Container className="mt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <FadeIn>
-            <div className="text-center">
+            <div className="flex justify-center lg:justify-start">
               <Image
                 src={imageFranciscoBaptista}
                 alt="Francisco Baptista"
-                className="aspect-square rounded-2xl object-cover mx-auto w-48"
+                className="rounded-2xl object-cover w-80 h-80"
               />
             </div>
           </FadeIn>
           
-          <FadeIn className="lg:col-span-2">
-            <div className="space-y-6">
-              <p className="text-lg text-[#333333]">
+          <FadeIn>
+            <div className="space-y-8">
+              <h2 className="text-2xl font-medium text-[#003C71]">
                 I prevent executive failure in high-stakes transitions.
-              </p>
+              </h2>
               
-              <div className="grid grid-cols-2 gap-4 text-sm text-[#666666]">
-                <div>200+ executives</div>
-                <div>87% success rate</div>
-                <div>12 years singular focus</div>
-                <div>MIT, Hogan, IFS credentials</div>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <div className="text-xl font-semibold text-[#003C71]">200+</div>
+                  <div className="text-base text-[#333333]">executives</div>
+                </div>
+                <div>
+                  <div className="text-xl font-semibold text-[#003C71]">87%</div>
+                  <div className="text-base text-[#333333]">success rate</div>
+                </div>
+                <div>
+                  <div className="text-xl font-semibold text-[#003C71]">12 years</div>
+                  <div className="text-base text-[#333333]">singular focus</div>
+                </div>
+                <div>
+                  <div className="text-xl font-semibold text-[#003C71]">MIT, Hogan, IFS</div>
+                  <div className="text-base text-[#333333]">credentials</div>
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -75,8 +87,8 @@ export default function About() {
                   Why architecture not coaching
                 </h3>
                 <p>
-                  Coaches help you find answers. I tell you what's happening based on 200+ patterns.
-                  Coaches support. I architect. It's the difference between therapy and surgery.
+                  Traditional advisors help you find answers. I tell you what's happening based on 200+ patterns.
+                  Others support. I architect. It's the difference between therapy and surgery.
                 </p>
               </div>
               

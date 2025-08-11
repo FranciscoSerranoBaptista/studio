@@ -7,28 +7,12 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
-    title: 'Services',
+    title: 'Navigation',
     links: [
-      { title: 'Executive Coaching', href: '/process' },
-      { title: 'Inner Team Dynamics™', href: '/process' },
-      { title: 'Leadership Development', href: '/work' },
-      {
-        title: (
-          <>
-            View Case Studies <span aria-hidden="true">&rarr;</span>
-          </>
-        ),
-        href: '/work',
-      },
-    ],
-  },
-  {
-    title: 'About',
-    links: [
-      { title: 'Francisco Baptista', href: '/about' },
-      { title: 'Methodology', href: '/process' },
-      { title: 'Insights', href: '/blog' },
-      { title: 'Review Executive Criteria', href: '/contact' },
+      { title: 'About', href: '/about' },
+      { title: 'Process', href: '/process' },
+      { title: 'Resources', href: '/resources' },
+      { title: 'Assessment', href: '/assessment' },
     ],
   },
   {
@@ -43,10 +27,10 @@ function Navigation() {
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-brand-navy">
+            <div className="font-display text-sm font-semibold tracking-wider text-[#003C71]">
               {section.title}
             </div>
-            <ul role="list" className="mt-4 text-sm text-neutral-700">
+            <ul role="list" className="mt-4 text-sm text-[#333333]">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
                   <Link
@@ -78,21 +62,24 @@ function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function CoachingCallToAction() {
+function AssessmentCallToAction() {
   return (
     <div className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-brand-navy">
-        Executive Transition Architecture
+      <h2 className="font-display text-sm font-semibold tracking-wider text-[#003C71]">
+        Francisco Baptista
       </h2>
-      <p className="mt-4 text-sm text-neutral-700">
-        Systematic methodology for senior leaders navigating complex role transitions with measurable acceleration of impact.
+      <p className="mt-2 text-xs text-[#333333]">
+        Executive Transition Architect
+      </p>
+      <p className="mt-4 text-sm text-[#333333]">
+        200+ executives. 87% success rate. Systematic intervention for high-stakes transitions.
       </p>
       <div className="mt-6">
         <Link
-          href="/contact"
-          className="inline-flex items-center rounded-2xl bg-brand-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-navy-800"
+          href="/assessment"
+          className="inline-flex items-center rounded-lg bg-[#003C71] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#002A52]"
         >
-          Review Executive Criteria
+          Request Assessment
           <ArrowIcon className="ml-2 w-4" />
         </Link>
       </div>
@@ -107,15 +94,15 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
           <Navigation />
           <div className="flex lg:justify-end">
-            <CoachingCallToAction />
+            <AssessmentCallToAction />
           </div>
         </div>
         <div className="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
           <Link href="/" aria-label="Home">
             <Logo className="h-8" fillOnHover />
           </Link>
-          <p className="text-sm text-neutral-700">
-            © Francisco Baptista Executive Coaching {new Date().getFullYear()}
+          <p className="text-sm text-[#666666]">
+            © {new Date().getFullYear()} Francisco Baptista | Executive Transition Architect
           </p>
         </div>
       </FadeIn>

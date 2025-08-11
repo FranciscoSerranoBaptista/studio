@@ -56,7 +56,7 @@ function AssessmentPhase() {
         </div>
         
         <div className="bg-[#F5F5F5] rounded-lg p-6">
-          <p className="font-medium text-[#003C71] mb-2">Mutual evaluation frame</p>
+          <p className="font-medium text-[#003C71] mb-2">Strategic fit assessment</p>
           <p className="text-sm">This assessment determines fit for both parties. I evaluate if you're ready for systematic intervention. You evaluate if the methodology serves your situation.</p>
         </div>
       </div>
