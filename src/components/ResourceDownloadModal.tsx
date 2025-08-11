@@ -81,7 +81,11 @@ export function ResourceDownloadModal({ isOpen, onClose, resource }: ResourceDow
         // Trigger download after successful email collection
         const link = document.createElement('a')
         link.href = resource.href
-        link.download = resource.title
+        // Extract filename from href or use a clean version of the title
+        const filename = resource.href.split('/').pop()?.replace(/%20/g, ' ') || 
+                        resource.title.replace(/[^a-zA-Z0-9]/g, '-') + '.pdf'
+        link.download = filename
+        link.target = '_blank' // Opens in new tab as fallback
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
