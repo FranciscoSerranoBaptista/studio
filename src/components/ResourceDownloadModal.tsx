@@ -41,17 +41,16 @@ export function ResourceDownloadModal({ isOpen, onClose, resource }: ResourceDow
     try {
       console.log('Sending resource request for:', firstName, email, resource.title)
       
-      // Send email notification using EmailJS
+      // Send email notification using EmailJS - match DiagnosticModal parameters
       const emailData = {
         to_email: process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || 'francisco@example.com',
         from_name: 'Executive Transition Advisory',
-        subject: `Resource Download: ${resource.title}`,
+        subject: `New Resource Request: ${resource.title}`,
         firstName: firstName.trim(),
         executiveEmail: email,
         resource: resource.title,
-        resourceDescription: resource.description,
         timestamp: new Date().toLocaleString(),
-        message: `${firstName.trim()} has requested access to "${resource.title}". Follow-up recommended within 48 hours.`
+        message: `${firstName.trim()} has downloaded ${resource.title} and may be interested in strategic assessment. Personal follow-up recommended within 48 hours.`
       }
       
       const payload = {
