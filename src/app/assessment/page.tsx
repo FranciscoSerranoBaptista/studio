@@ -6,7 +6,7 @@ import { RootLayout } from '@/components/RootLayout'
 import { StrategicAssessmentForm } from '@/components/StrategicAssessmentForm'
 
 export const metadata: Metadata = {
-  title: 'Strategic Assessment - Executive Transition Architecture',
+  title: 'Strategic Assessment - Executive Transition Advisory',
   description: 'Qualification and strategic assessment request for senior executives navigating high-stakes transitions.',
 }
 
@@ -27,7 +27,7 @@ export default function Assessment() {
               Strategic Assessment
             </h1>
             <p className="mt-6 text-xl text-[#333333]">
-              Qualification confirmation for executive transition architecture.
+              Qualification confirmation for executive transition advisory.
             </p>
           </div>
         </FadeIn>
@@ -57,7 +57,7 @@ export default function Assessment() {
 
               <div className="mt-8 rounded-2xl bg-[#F5F5F5] p-6">
                 <h3 className="text-base font-semibold text-[#003C71]">
-                  Not sure if you qualify?
+                  Evaluating strategic fit?
                 </h3>
                 <p className="mt-2 text-base text-[#333333]">
                   Consider the Executive Integration Diagnostic first. 

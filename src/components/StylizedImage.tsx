@@ -1,6 +1,6 @@
-import { useId } from 'react'
-import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+import Image, { type ImageProps } from 'next/image'
+import { useId } from 'react'
 
 const shapes = [
   {
@@ -28,14 +28,11 @@ export function StylizedImage({
   ...props
 }: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
   const id = useId()
-  let { width, height, path } = shapes[shape]
+  const { width, height, path } = shapes[shape]
 
   return (
     <div
-      className={clsx(
-        className,
-        'relative flex aspect-719/680 w-full',
-      )}
+      className={clsx(className, 'relative flex aspect-719/680 w-full')}
       style={{ filter: 'grayscale(50%) contrast(1.1)' }}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">

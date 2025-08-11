@@ -69,7 +69,7 @@ function AssessmentCallToAction() {
         Francisco Baptista
       </h2>
       <p className="mt-2 text-xs text-[#333333]">
-        Executive Transition Architect
+        Executive Transition Advisor
       </p>
       <p className="mt-4 text-sm text-[#333333]">
         200+ executives. 87% success rate. Systematic intervention for high-stakes transitions.
@@ -102,7 +102,7 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-[#666666]">
-            © {new Date().getFullYear()} Francisco Baptista | Executive Transition Architect
+            © {new Date().getFullYear()} Francisco Baptista | Executive Transition Advisor
           </p>
         </div>
       </FadeIn>

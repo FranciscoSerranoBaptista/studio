@@ -21,7 +21,7 @@ function ScreenOne() {
             href="#qualify" 
             className="inline-block bg-[#003C71] text-white font-medium px-8 py-4 rounded-lg text-lg hover:bg-[#002A52] transition-colors"
           >
-            See If You Qualify
+            Evaluate Strategic Fit
           </a>
         </FadeIn>
       </Container>
@@ -44,7 +44,7 @@ function ScreenTwo() {
             <p><strong className="text-[#003C71]">Day 90:</strong> The verdict is set</p>
           </div>
           <p className="text-lg text-[#666666] mb-8">
-            Your first 100 days determine everything. Architecture beats hope.
+            Your stakeholders form irreversible judgments by Day 90. Every day without systematic intervention reduces your probability of success.
           </p>
           <a 
             href="#evidence" 
@@ -150,16 +150,16 @@ function ScreenFive() {
       <Container>
         <FadeIn className="text-center max-w-3xl mx-auto">
           <h2 className="font-display text-5xl font-medium text-[#003C71] mb-8">
-            Your first 100 days are unrepeatable
+            Your stakeholders are forming permanent judgments
           </h2>
           
           <p className="text-xl text-[#333333] mb-12">
-            Every day without architecture is a day your narrative is being written without you.
+            Every day without systematic intervention reduces your probability of success. Architecture ensures the narrative serves your objectives.
           </p>
           
           <div className="mb-12">
             <p className="text-2xl text-[#003C71] mb-2">Francisco Baptista</p>
-            <p className="text-lg text-[#333333] mb-1">Executive Transition Architect</p>
+            <p className="text-lg text-[#333333] mb-1">Executive Transition Advisor</p>
             <p className="text-lg text-[#333333]">200+ Senior Leaders | 87% Success Rate</p>
           </div>
           
@@ -177,9 +177,9 @@ function ScreenFive() {
 
 export const metadata: Metadata = {
   description:
-    'Executive Transition Architect Francisco Baptista. Former Nestlé & SAP executive. 200+ senior leaders across 15+ countries. Systematic architecture for Managing Directors, Technical Leaders, and Senior Executives navigating complex transitions.',
+    'Executive Transition Advisor Francisco Baptista. Former Nestlé & SAP executive. 200+ senior leaders across 15+ countries. Systematic architecture for Managing Directors, Technical Leaders, and Senior Executives navigating complex transitions.',
   title:
-    'Francisco Baptista - Executive Transition Architect | Systematic Success Architecture',
+    'Francisco Baptista - Executive Transition Advisor | Systematic Success Architecture',
 }
 
 export default function Home() {

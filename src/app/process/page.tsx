@@ -37,7 +37,7 @@ function AssessmentPhase() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h3 className="text-lg font-semibold text-[#003C71] mb-3">
-              90-minute strategic evaluation
+              45-minute strategic evaluation
             </h3>
             <p>Comprehensive diagnostic of transition complexity, stakeholder dynamics, and integration patterns.</p>
           </div>
@@ -161,7 +161,7 @@ function InvestmentPhase() {
 
 
 export const metadata: Metadata = {
-  title: 'Process - Executive Transition Architecture',
+  title: 'Process - Executive Transition Advisory',
   description:
     'Systematic methodology for analytical buyers. Assessment, Architecture, Investment. For executives where failure isn\'t an option.',
 }

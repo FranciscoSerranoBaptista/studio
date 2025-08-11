@@ -493,7 +493,7 @@ export const metadata: Metadata = {
   title:
     'Executive Integration: Documented Transformation | Francisco Baptista',
   description:
-    '200+ senior executives across 15+ countries. Real challenges, documented breakthroughs through systematic Executive Integration Architecture. Evidence-based transformation for complex leadership contexts.',
+    '200+ senior executives across 15+ countries. Real challenges, documented breakthroughs through systematic Executive Integration Advisory. Evidence-based transformation for complex leadership contexts.',
 }
 
 export default function Work() {

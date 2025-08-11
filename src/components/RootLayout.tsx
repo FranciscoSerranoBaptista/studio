@@ -1,5 +1,9 @@
 'use client'
 
+import clsx from 'clsx'
+import { MotionConfig, motion, useReducedMotion } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import {
   createContext,
   useContext,
@@ -8,15 +12,11 @@ import {
   useRef,
   useState,
 } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
-import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
-import { Logo, Logomark } from '@/components/Logo'
+import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 
@@ -57,7 +57,11 @@ function Header({
   toggleRef: React.RefObject<HTMLButtonElement | null>
   invert?: boolean
 }) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+  const context = useContext(RootLayoutContext)
+  if (!context) {
+    throw new Error('Header must be used within RootLayout')
+  }
+  const { logoHovered, setLogoHovered } = context
 
   return (
     <Container>
@@ -68,11 +72,7 @@ function Header({
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logo
-            className="h-8"
-            invert={invert}
-            filled={logoHovered}
-          />
+          <Logo className="h-8" invert={invert} filled={logoHovered} />
         </Link>
         <div className="flex items-center gap-x-8">
           <Button href="/assessment" invert={invert}>
@@ -150,11 +150,11 @@ function Navigation() {
 
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
   const panelId = useId()
-  let [expanded, setExpanded] = useState(false)
-  let [isTransitioning, setIsTransitioning] = useState(false)
-  const openRef = useRef<React.ElementRef<'button'>>(null)
-  const closeRef = useRef<React.ElementRef<'button'>>(null)
-  const navRef = useRef<React.ElementRef<'div'>>(null)
+  const [expanded, setExpanded] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const openRef = useRef<React.ComponentRef<'button'>>(null)
+  const closeRef = useRef<React.ComponentRef<'button'>>(null)
+  const navRef = useRef<React.ComponentRef<'div'>>(null)
   const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
@@ -264,7 +264,6 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
-
           <main className="w-full flex-auto">{children}</main>
 
           <Footer />
@@ -276,7 +275,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  let [logoHovered, setLogoHovered] = useState(false)
+  const [logoHovered, setLogoHovered] = useState(false)
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>

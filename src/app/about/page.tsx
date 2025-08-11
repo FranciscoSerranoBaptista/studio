@@ -16,7 +16,7 @@ import imageFranciscoBaptista from '@/images/personal/Francisco022.jpg'
 
 
 export const metadata: Metadata = {
-  title: 'About - Executive Transition Architect',
+  title: 'About - Executive Transition Advisor',
   description:
     'Francisco Baptista prevents executive failure. 200+ executives, 87% success rate. Authority without journey language.',
 }
@@ -25,8 +25,8 @@ export default function About() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="Executive Transition Architect"
-        title="I prevent executive failure."
+        eyebrow="Executive Transition Advisor"
+        title="I architect executive success."
       >
         <p>
           200+ senior executives. 15 countries. 87% success rate.
@@ -48,7 +48,7 @@ export default function About() {
           <FadeIn>
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-[#003C71]">
-                I prevent executive failure in high-stakes transitions.
+                I architect systematic success in high-stakes transitions.
               </h2>
               
               <div className="grid grid-cols-2 gap-6">
@@ -84,11 +84,11 @@ export default function About() {
             <div className="space-y-8 text-[#333333]">
               <div>
                 <h3 className="text-lg font-semibold text-[#003C71] mb-3">
-                  Why architecture not coaching
+                  Why systematic diagnosis over coaching support
                 </h3>
                 <p>
-                  Traditional advisors help you find answers. I tell you what's happening based on 200+ patterns.
-                  Others support. I architect. It's the difference between therapy and surgery.
+                  Coaches help you find answers. I diagnose what's happening based on 200+ documented patterns.
+                  Others support. I diagnose and architect solutions. It's the difference between therapy and surgery.
                 </p>
               </div>
               

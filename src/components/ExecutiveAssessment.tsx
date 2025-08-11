@@ -158,9 +158,9 @@ export function ExecutiveAssessment() {
     
     if (totalScore >= 45) {
       qualification = 'qualified'
-      recommendation = 'You meet the criteria for Executive Transition Architecture. Your complexity score indicates significant benefit from systematic transition engineering.'
+      recommendation = 'You meet the criteria for Executive Transition Advisory. Your complexity score indicates significant benefit from systematic transition engineering.'
       nextSteps = [
-        'Schedule your complimentary 90-minute Strategic Assessment',
+        'Schedule your complimentary 45-minute Strategic Assessment',
         'Receive comprehensive transition complexity analysis',
         'Develop preliminary stakeholder navigation strategy',
         'Determine optimal engagement structure for your situation'
@@ -169,14 +169,14 @@ export function ExecutiveAssessment() {
       qualification = 'borderline'
       recommendation = 'You have moderate complexity that could benefit from executive coaching. A strategic conversation would help determine the best approach.'
       nextSteps = [
-        'Schedule a 30-minute qualification call',
+        'Schedule a 45-minute qualification call',
         'Discuss your specific transition challenges',
         'Explore alternative support structures',
         'Consider targeted executive coaching interventions'
       ]
     } else {
       qualification = 'not-qualified'
-      recommendation = 'Based on your current situation, you may not require the full Executive Transition Architecture. However, strategic guidance could still be valuable.'
+      recommendation = 'Based on your current situation, you may not require the full Executive Transition Advisory. However, strategic guidance could still be valuable.'
       nextSteps = [
         'Consider executive coaching for specific challenges',
         'Explore peer advisory groups in your region',
@@ -270,11 +270,11 @@ export function ExecutiveAssessment() {
             
             {result.qualification === 'qualified' && (
               <div className="mt-8 text-center">
-                <Button href="#booking" className="inline-flex">
+                <Button href="/book" className="inline-flex">
                   Schedule Strategic Assessment
                 </Button>
                 <p className="mt-3 text-sm text-neutral-500">
-                  Complimentary 90-minute session • Complete confidentiality • NDA provided
+                  Complimentary 45-minute session • Complete confidentiality • NDA provided
                 </p>
               </div>
             )}

@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Offices } from '@/components/Offices'
 
 export function ContactSection() {
   return (
@@ -13,14 +12,17 @@ export function ContactSection() {
               Your Board Hired You to Succeed, Not to Hope
             </h2>
             <p className="mt-6 text-lg text-white/80">
-              <strong>Executive Transition Assessment</strong><br/>
-              90 minutes | Strategic Analysis | Confidential
+              <strong>Executive Transition Assessment</strong>
+              <br />
+              45 minutes | Strategic Analysis | Confidential
             </p>
             <p className="mt-4 text-base text-white/60">
-              A systematic evaluation of your transition complexity, stakeholder landscape mapping, and success probability assessment. This conversation alone often prevents predictable failures.
+              A systematic evaluation of your transition complexity, stakeholder
+              landscape mapping, and success probability assessment. This
+              conversation alone often prevents predictable failures.
             </p>
             <div className="mt-8 flex">
-              <Button href="/contact" invert>
+              <Button href="/assessment" invert>
                 Request Strategic Assessment
               </Button>
             </div>
@@ -35,7 +37,8 @@ export function ContactSection() {
                 English | German | French
               </p>
               <p className="mt-4 text-sm text-white/60 italic">
-                Your transformation doesn't require you to become someone else. It requires you to become fully yourself.
+                Your transformation doesn&apos;t require you to become someone
+                else. It requires you to become fully yourself.
               </p>
             </div>
           </div>
