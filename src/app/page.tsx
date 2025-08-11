@@ -128,7 +128,7 @@ function ScreenFour() {
               href="/resources"
               className="inline-block border-2 border-[#003C71] text-[#003C71] font-medium px-6 py-3 rounded-lg hover:bg-[#003C71] hover:text-white transition-colors"
             >
-              Not sure? Take 2-Minute Assessment
+              Not sure? Get Diagnostic Resources
             </a>
             <a 
               href="#begin" 

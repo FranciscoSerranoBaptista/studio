@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/Button'
 import { DiagnosticModal } from '@/components/DiagnosticModal'
+import { ResourceDownloadModal } from '@/components/ResourceDownloadModal'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 
 const resources = [
@@ -71,9 +72,11 @@ const resources = [
 function ResourceCard({
   resource,
   onDiagnosticClick,
+  onResourceClick,
 }: {
   resource: (typeof resources)[0]
   onDiagnosticClick?: () => void
+  onResourceClick?: () => void
 }) {
   return (
     <FadeIn>
@@ -112,6 +115,14 @@ function ResourceCard({
             >
               {resource.action}
             </Button>
+          ) : resource.gated ? (
+            <Button
+              onClick={onResourceClick}
+              className="w-full"
+              aria-label={`${resource.action} - ${resource.title}`}
+            >
+              {resource.action}
+            </Button>
           ) : (
             <Button
               href={resource.href}
@@ -129,6 +140,7 @@ function ResourceCard({
 
 export function ResourcesClient() {
   const [isDiagnosticModalOpen, setIsDiagnosticModalOpen] = useState(false)
+  const [selectedResource, setSelectedResource] = useState<(typeof resources)[0] | null>(null)
 
   return (
     <>
@@ -140,6 +152,7 @@ export function ResourcesClient() {
               key={resource.title}
               resource={resource}
               onDiagnosticClick={() => setIsDiagnosticModalOpen(true)}
+              onResourceClick={() => setSelectedResource(resource)}
             />
           ))}
         </FadeInStagger>
@@ -147,7 +160,11 @@ export function ResourcesClient() {
         {/* Three case studies in grid */}
         <FadeInStagger className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3">
           {resources.slice(2).map((resource) => (
-            <ResourceCard key={resource.title} resource={resource} />
+            <ResourceCard 
+              key={resource.title} 
+              resource={resource}
+              onResourceClick={() => setSelectedResource(resource)}
+            />
           ))}
         </FadeInStagger>
       </div>
@@ -156,6 +173,14 @@ export function ResourcesClient() {
         isOpen={isDiagnosticModalOpen}
         onClose={() => setIsDiagnosticModalOpen(false)}
       />
+      
+      {selectedResource && (
+        <ResourceDownloadModal
+          isOpen={!!selectedResource}
+          onClose={() => setSelectedResource(null)}
+          resource={selectedResource}
+        />
+      )}
     </>
   )
 }
