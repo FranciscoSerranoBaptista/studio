@@ -1,7 +1,6 @@
 import { type Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
 import { StrategicAssessmentForm } from '@/components/StrategicAssessmentForm'
 

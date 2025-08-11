@@ -83,7 +83,6 @@ function ResourceCard({
           {resource.title === 'Executive Integration Diagnostic' ? (
             <Button
               onClick={onDiagnosticClick}
-              variant="outline"
               className="w-full"
               aria-label={`${resource.action} - ${resource.title}`}
             >
@@ -92,7 +91,6 @@ function ResourceCard({
           ) : (
             <Button
               href={resource.href}
-              variant="outline"
               className="w-full"
               aria-label={`${resource.action} - ${resource.title}`}
             >

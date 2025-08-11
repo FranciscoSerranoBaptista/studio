@@ -32,7 +32,7 @@ export function GridPattern({
   const ref = useRef<React.ElementRef<'svg'>>(null)
   const currentBlock = useRef<[x: number, y: number] | undefined>(undefined)
   const counter = useRef(0)
-  let [hoveredBlocks, setHoveredBlocks] = useState<
+  const [hoveredBlocks, setHoveredBlocks] = useState<
     Array<[x: number, y: number, key: number]>
   >([])
   const staticBlocks = [
@@ -54,7 +54,7 @@ export function GridPattern({
         return
       }
 
-      let rect = ref.current.getBoundingClientRect()
+      const rect = ref.current.getBoundingClientRect()
       let x = event.clientX - rect.left
       let y = event.clientY - rect.top
       if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
@@ -74,8 +74,8 @@ export function GridPattern({
       currentBlock.current = [x, y]
 
       setHoveredBlocks((blocks) => {
-        let key = counter.current++
-        let block = [x, y, key] as (typeof hoveredBlocks)[number]
+        const key = counter.current++
+        const block = [x, y, key] as (typeof hoveredBlocks)[number]
         return [...blocks, block].filter(
           (block) => !(block[0] === x && block[1] === y && block[2] !== key),
         )

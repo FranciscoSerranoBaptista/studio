@@ -87,8 +87,8 @@ export default function About() {
                   Why systematic diagnosis over coaching support
                 </h3>
                 <p>
-                  Coaches help you find answers. I diagnose what's happening based on 200+ documented patterns.
-                  Others support. I diagnose and architect solutions. It's the difference between therapy and surgery.
+                  Coaches help you find answers. I diagnose what&apos;s happening based on 200+ documented patterns.
+                  Others support. I diagnose and architect solutions. It&apos;s the difference between therapy and surgery.
                 </p>
               </div>
               
@@ -97,7 +97,7 @@ export default function About() {
                   Why 100 days matter
                 </h3>
                 <p>
-                  Day 30: They're forming opinions. Day 60: They're making decisions. 
+                  Day 30: They&apos;re forming opinions. Day 60: They&apos;re making decisions. 
                   Day 90: The verdict is set. Your first 100 days are unrepeatable.
                 </p>
               </div>

@@ -324,7 +324,7 @@ function SystematicAdvantage() {
       >
         <p>
           After 200+ executive engagements, patterns emerge. Your challenge
-          isn't unique—it's a variation on proven themes.
+          isn&apos;t unique—it&apos;s a variation on proven themes.
         </p>
       </SectionIntro>
 
@@ -373,7 +373,7 @@ function SystematicAdvantage() {
                 Internal Architecture
               </h3>
               <p className="text-neutral-600">
-                We don't fix symptoms. We integrate the competing forces within
+                We don&apos;t fix symptoms. We integrate the competing forces within
                 that create external friction.
               </p>
             </div>
@@ -400,7 +400,7 @@ function ClientTransformationInsights() {
           <FadeIn key={index}>
             <blockquote className="rounded-3xl bg-white p-8 ring-1 ring-brand-blue/10">
               <p className="mb-4 text-lg text-neutral-600 italic">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
               <p className="font-medium text-brand-navy">
                 — {testimonial.client}
@@ -413,9 +413,9 @@ function ClientTransformationInsights() {
       <FadeIn className="mt-16">
         <div className="rounded-4xl bg-brand-navy/5 p-8 text-center lg:p-12">
           <blockquote className="mb-6 text-xl text-neutral-600 italic">
-            "The question wasn&apos;t '&apos;hat do you want to be?&apos; but
-            &apos;WHO do you want to be?&apos; That got really tough. And then I
-            started to let change happen. In that direction."
+            &ldquo;The question wasn&apos;t &lsquo;What do you want to be?&rsquo; but
+            &lsquo;WHO do you want to be?&rsquo; That got really tough. And then I
+            started to let change happen. In that direction.&rdquo;
           </blockquote>
           <p className="text-lg text-neutral-600">
             This is the question at the heart of Executive Integration. Not what
@@ -523,10 +523,10 @@ export default function Work() {
         <FadeIn>
           <div className="mx-auto max-w-3xl text-center">
             <blockquote className="text-xl text-neutral-600 italic">
-              "These aren&apos;t just success stories. They&apos;re proof that
+              &ldquo;These aren&apos;t just success stories. They&apos;re proof that
               systematic integration of leadership capabilities produces
               predictable, measurable executive excellence. Every quote, every
-              insight comes from 100+ hours of documented transformation."
+              insight comes from 100+ hours of documented transformation.&rdquo;
             </blockquote>
             <p className="mt-6 font-medium text-neutral-950">
               — Francisco Baptista

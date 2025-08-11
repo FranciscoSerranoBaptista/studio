@@ -18,7 +18,7 @@ export function GrayscaleTransitionImage(
   > & { alt?: string },
 ) {
   const ref = useRef<React.ElementRef<'div'>>(null)
-  let { scrollYProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 65%', 'end 35%'],
   })
@@ -27,7 +27,7 @@ export function GrayscaleTransitionImage(
 
   return (
     <div ref={ref} className="group relative">
-      <MotionImage alt="" style={{ filter } as any} {...props} />
+      <MotionImage alt="" style={{ filter }} {...props} />
       <div
         className="pointer-events-none absolute top-0 left-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
         aria-hidden="true"

@@ -57,7 +57,7 @@ function AssessmentPhase() {
         
         <div className="bg-[#F5F5F5] rounded-lg p-6">
           <p className="font-medium text-[#003C71] mb-2">Strategic fit assessment</p>
-          <p className="text-sm">This assessment determines fit for both parties. I evaluate if you're ready for systematic intervention. You evaluate if the methodology serves your situation.</p>
+          <p className="text-sm">This assessment determines fit for both parties. I evaluate if you&apos;re ready for systematic intervention. You evaluate if the methodology serves your situation.</p>
         </div>
       </div>
       
@@ -115,7 +115,7 @@ function ArchitecturePhase() {
         
         <div className="text-center">
           <p className="font-medium text-[#003C71]">Measurable outcomes each phase</p>
-          <p className="text-sm mt-2">This isn't coaching. It's systematic intervention.</p>
+          <p className="text-sm mt-2">This isn&apos;t coaching. It&apos;s systematic intervention.</p>
         </div>
       </div>
     </Section>
@@ -127,7 +127,7 @@ function InvestmentPhase() {
     <Section title="The Investment">
       <div className="space-y-6 text-base text-[#333333]">
         <div className="text-center mb-6">
-          <p className="text-lg font-medium text-[#003C71] mb-2">"Matches the stakes"</p>
+          <p className="text-lg font-medium text-[#003C71] mb-2">&ldquo;Matches the stakes&rdquo;</p>
           <p className="text-sm">ROI documented</p>
         </div>
         

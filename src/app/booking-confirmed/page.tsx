@@ -26,7 +26,7 @@ export default function BookingConfirmed() {
             </h1>
             
             <p className="text-xl text-[#333333] mb-12">
-              You'll receive a calendar invitation with our video meeting link shortly.
+              You&apos;ll receive a calendar invitation with our video meeting link shortly.
             </p>
           </div>
         </FadeIn>
