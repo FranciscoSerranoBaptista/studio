@@ -29,9 +29,10 @@ Your EmailJS template should include these variables to format the assessment da
 
 <h3>Complexity Indicators</h3>
 <p><strong>P&L Responsibility:</strong> {{pl_responsibility}}</p>
-<p><strong>Team Size:</strong> {{team_size}}</p>
+<p><strong>Team Size (Direct):</strong> {{team_size_direct}}</p>
+<p><strong>Team Size (Total):</strong> {{team_size_total}}</p>
 <p><strong>Geographic Scope:</strong> {{geographic_scope}}</p>
-<p><strong>Industry:</strong> {{industry}}</p>
+<p><strong>Matrix Complexity:</strong> {{matrix_complexity}}</p>
 
 <h3>Next Steps</h3>
 <p>{{booking_reminder}}</p>

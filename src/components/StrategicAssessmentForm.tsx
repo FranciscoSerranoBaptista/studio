@@ -140,9 +140,10 @@ export function StrategicAssessmentForm() {
         
         // Complexity Indicators
         pl_responsibility: formData.plResponsibility || 'Not provided',
-        team_size: formData.teamSize || 'Not provided',
+        team_size_direct: formData.teamSizeDirect || 'Not provided',
+        team_size_total: formData.teamSizeTotal || 'Not provided',
         geographic_scope: formData.geographicScope || 'Not provided',
-        industry: formData.industry || 'Not provided',
+        matrix_complexity: formData.matrixComplexity || 'Not provided',
         
         // Metadata
         timestamp: new Date().toLocaleString(),

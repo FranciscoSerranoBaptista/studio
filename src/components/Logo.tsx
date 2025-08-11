@@ -19,8 +19,8 @@ export function Logomark({
 export function Logo({
   className,
   invert = false,
-  filled,
-  fillOnHover,
+  filled: _filled,
+  fillOnHover: _fillOnHover,
   ...props
 }: React.ComponentPropsWithoutRef<'div'> & {
   invert?: boolean
