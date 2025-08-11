@@ -69,6 +69,7 @@ export function StrategicAssessmentForm() {
 
   const [currentSection, setCurrentSection] = useState(0)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const sections = [
     {
@@ -109,9 +110,81 @@ export function StrategicAssessmentForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here would be the actual form submission logic
-    console.log('Strategic Assessment Request:', formData)
-    setSubmitted(true)
+    setIsSubmitting(true)
+    
+    try {
+      console.log('Sending strategic assessment:', formData)
+      
+      // Format data for EmailJS template
+      const emailData = {
+        to_email: process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || 'francisco@example.com',
+        from_name: 'Executive Transition Advisory',
+        subject: `🎯 Strategic Assessment Request - ${formData.name}`,
+        
+        // Executive Details
+        executive_name: formData.name,
+        executive_title: formData.title,
+        executive_organization: formData.organization,
+        executive_email: formData.email,
+        executive_phone: formData.phone || 'Not provided',
+        
+        // Transition Context
+        transition_context: Array.isArray(formData.transitionContext) 
+          ? formData.transitionContext.join(', ') 
+          : formData.transitionContext,
+        urgency_timeline: formData.urgencyTimeline,
+        
+        // Strategic Questions
+        stakes_question: formData.stakesQuestion,
+        valuable_assessment: formData.valuableAssessment,
+        
+        // Complexity Indicators
+        pl_responsibility: formData.plResponsibility || 'Not provided',
+        team_size: formData.teamSize || 'Not provided',
+        geographic_scope: formData.geographicScope || 'Not provided',
+        industry: formData.industry || 'Not provided',
+        
+        // Metadata
+        timestamp: new Date().toLocaleString(),
+        booking_reminder: 'Reply with booking link for qualified executives'
+      }
+      
+      const payload = {
+        service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        template_params: emailData
+      }
+      
+      console.log('Sending to EmailJS:', {
+        hasServiceId: !!payload.service_id,
+        hasTemplateId: !!payload.template_id,
+        hasUserId: !!payload.user_id
+      })
+      
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      
+      console.log('EmailJS response status:', response.status)
+      
+      if (!response.ok) {
+        throw new Error(`EmailJS failed with status: ${response.status}`)
+      }
+      
+      console.log('Strategic assessment submitted successfully')
+      setSubmitted(true)
+      
+    } catch (error) {
+      console.error('Error submitting strategic assessment:', error)
+      alert('There was an error submitting your assessment. Please try again or contact us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const isCurrentSectionValid = () => {
@@ -553,10 +626,10 @@ export function StrategicAssessmentForm() {
           ) : (
             <button
               type="submit"
-              disabled={!isCurrentSectionValid()}
+              disabled={!isCurrentSectionValid() || isSubmitting}
               className="rounded-lg bg-brand-navy px-8 py-2 font-medium text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-300"
             >
-              Submit Assessment Request
+              {isSubmitting ? 'Submitting...' : 'Submit Assessment Request'}
             </button>
           )}
         </div>
