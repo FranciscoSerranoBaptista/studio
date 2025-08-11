@@ -10,7 +10,7 @@ function ScreenOne() {
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-16">
       <Container>
-        <FadeIn className="text-center">
+        <FadeIn immediate className="text-center">
           <h1 className="font-display text-6xl font-medium tracking-tight text-[#003C71] sm:text-8xl mb-8">
             40% of executive transitions fail.
           </h1>

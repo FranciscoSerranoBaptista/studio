@@ -79,7 +79,7 @@ export function SectionNavigationArrows() {
         <button
           type="button"
           onClick={navigateDown}
-          className="group fixed bottom-6 left-6 z-40 rounded-full bg-brand-orange p-3 text-white shadow-lg transition-all duration-300 hover:bg-brand-orange/90 hover:shadow-xl"
+          className="group fixed bottom-6 left-6 z-40 rounded-full bg-brand-navy p-3 text-white shadow-lg transition-all duration-300 hover:bg-brand-navy/90 hover:shadow-xl"
           aria-label="Next section"
         >
           <svg
@@ -96,7 +96,7 @@ export function SectionNavigationArrows() {
               d="M19 9l-7 7-7-7"
             />
           </svg>
-          <div className="pointer-events-none absolute top-1/2 left-12 -translate-y-1/2 rounded bg-brand-orange px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="pointer-events-none absolute top-1/2 left-12 -translate-y-1/2 rounded bg-brand-navy px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
             Next section
           </div>
         </button>

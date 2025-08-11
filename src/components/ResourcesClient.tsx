@@ -31,16 +31,40 @@ const resources = [
       'Bilateral NDA ensuring complete discretion for strategic discussions. Required before assessment. Protects both parties equally.',
   },
   {
-    title: 'Executive Transition Case Studies',
-    description: 'Real Transformation Evidence',
-    type: 'Case Documentation',
+    title: 'Global Professional Services Case Study',
+    description: 'Managing Director Transformation',
+    type: 'Executive Case Study',
     requirement: 'Investment: Your email',
-    value: 'Value: See systematic methodology',
-    action: 'Access Case Studies',
+    value: 'Value: Stakeholder alignment methodology',
+    action: 'Download Case Study',
     gated: true,
-    href: '#cases',
+    href: '/assets/Executive Case Study - Global Professional Services.pdf',
     details:
-      'Three confidential cases: German Banking MD (€2.1B P&L), Swiss Pharma EVP (12-country operation), Technology CDO (500+ engineers). Systematic patterns, precise interventions, measurable outcomes.',
+      'How a Managing Director navigated complex stakeholder dynamics while scaling operations across multiple markets. Documented transformation process and measurable outcomes.',
+  },
+  {
+    title: 'Manufacturing Leadership Case Study',
+    description: 'Operational Excellence Integration',
+    type: 'Executive Case Study',
+    requirement: 'Investment: Your email', 
+    value: 'Value: Change management framework',
+    action: 'Download Case Study',
+    gated: true,
+    href: '/assets/Executive Case Study - Manufacturing.pdf',
+    details:
+      'Executive leading major operational transformation while managing legacy systems and cultural resistance. Systematic approach to integration and team alignment.',
+  },
+  {
+    title: 'Technology ScaleUp Case Study',
+    description: 'Growth Leadership Architecture',
+    type: 'Executive Case Study',
+    requirement: 'Investment: Your email',
+    value: 'Value: Scaling methodology insights',
+    action: 'Download Case Study', 
+    gated: true,
+    href: '/assets/Executive Case Study - Technology ScaleUp.pdf',
+    details:
+      'CTO navigating hypergrowth challenges while building high-performance engineering culture. Evidence-based approach to leadership scalability and team dynamics.',
   },
 ]
 
@@ -53,7 +77,7 @@ function ResourceCard({
 }) {
   return (
     <FadeIn>
-      <article className="flex flex-col rounded-3xl p-8 ring-1 ring-[#003C71]/10 transition hover:bg-[#F5F5F5]">
+      <article className="flex flex-col h-full rounded-3xl p-8 ring-1 ring-[#003C71]/10 transition hover:bg-[#F5F5F5]">
         <div className="flex flex-1 flex-col">
           <h3 className="mb-2 text-xl font-semibold text-[#003C71]">
             {resource.title}
@@ -120,8 +144,8 @@ export function ResourcesClient() {
           ))}
         </FadeInStagger>
 
-        {/* Third resource centered */}
-        <FadeInStagger className="mx-auto max-w-md">
+        {/* Three case studies in grid */}
+        <FadeInStagger className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3">
           {resources.slice(2).map((resource) => (
             <ResourceCard key={resource.title} resource={resource} />
           ))}

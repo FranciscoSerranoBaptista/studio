@@ -554,7 +554,7 @@ export function StrategicAssessmentForm() {
             <button
               type="submit"
               disabled={!isCurrentSectionValid()}
-              className="rounded-lg bg-brand-orange px-8 py-2 font-medium text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-300"
+              className="rounded-lg bg-brand-navy px-8 py-2 font-medium text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-300"
             >
               Submit Assessment Request
             </button>

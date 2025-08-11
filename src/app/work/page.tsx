@@ -182,7 +182,7 @@ function ExecutiveCases() {
                           Presenting Challenge:
                         </strong>
                       </p>
-                      <blockquote className="mt-2 border-l-4 border-brand-orange pl-4 italic">
+                      <blockquote className="mt-2 border-l-4 border-brand-blue pl-4 italic">
                         {caseStudy.presentingChallenge}
                       </blockquote>
                     </div>

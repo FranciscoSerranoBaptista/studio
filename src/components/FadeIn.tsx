@@ -7,9 +7,12 @@ const FadeInStaggerContext = createContext(false)
 
 const viewport = { once: true, margin: '0px 0px -200px' }
 
-export function FadeIn(
-  props: React.ComponentPropsWithoutRef<typeof motion.div>,
-) {
+export function FadeIn({
+  immediate = false,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  immediate?: boolean
+}) {
   const shouldReduceMotion = useReducedMotion()
   const isInStaggerGroup = useContext(FadeInStaggerContext)
 
@@ -22,6 +25,11 @@ export function FadeIn(
       transition={{ duration: 0.5 }}
       {...(isInStaggerGroup
         ? {}
+        : immediate
+        ? {
+            initial: 'hidden',
+            animate: 'visible',
+          }
         : {
             initial: 'hidden',
             whileInView: 'visible',
