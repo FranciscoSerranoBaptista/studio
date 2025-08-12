@@ -216,22 +216,6 @@ export default function About() {
         </FadeIn>
       </Container>
 
-      {/* THE PERSON */}
-      <Container className="mt-24 sm:mt-32 lg:mt-40">
-        <FadeIn>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-medium text-[#003C71] mb-8">
-              THE PERSON
-            </h2>
-            <div className="space-y-4 text-lg text-[#333333]">
-              <p>Francisco Baptista. Portuguese precision meets Swiss methodology.</p>
-              <p>MIT Sloan Executive Education. Hogan Assessment Certification. IFS Practitioner.</p>
-              <p>Based in Lausanne. Working globally. Three executives per quarter maximum.</p>
-            </div>
-          </div>
-        </FadeIn>
-      </Container>
-
       {/* THE DECISION */}
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <FadeIn>
