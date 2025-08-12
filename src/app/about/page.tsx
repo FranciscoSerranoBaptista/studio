@@ -26,10 +26,10 @@ export default function About() {
     <RootLayout>
       <PageIntro
         eyebrow="Executive Transition Advisor"
-        title="I prevent executive failure."
+        title="I prevent executive failure in high-stakes transitions."
       >
         <p>
-          Systematic intervention for complex leadership transitions.
+          Not through coaching. Through systematic diagnosis and architectural intervention.
         </p>
       </PageIntro>
 
@@ -48,25 +48,25 @@ export default function About() {
           <FadeIn>
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-[#003C71]">
-                I architect systematic success in high-stakes transitions.
+                THE PRACTICE
               </h2>
               
-              <div className="grid grid-cols-2 gap-6">
-                <div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
                   <div className="text-xl font-semibold text-[#003C71]">200+</div>
-                  <div className="text-base text-[#333333]">senior executives</div>
+                  <div className="text-base text-[#333333]">senior executives navigated successfully</div>
                 </div>
-                <div>
+                <div className="flex items-center gap-4">
                   <div className="text-xl font-semibold text-[#003C71]">15</div>
-                  <div className="text-base text-[#333333]">countries</div>
+                  <div className="text-base text-[#333333]">countries of operational complexity</div>
                 </div>
-                <div>
+                <div className="flex items-center gap-4">
                   <div className="text-xl font-semibold text-[#003C71]">87%</div>
-                  <div className="text-base text-[#333333]">success rate</div>
+                  <div className="text-base text-[#333333]">success rate versus 40% industry average</div>
                 </div>
-                <div>
+                <div className="flex items-center gap-4">
                   <div className="text-xl font-semibold text-[#003C71]">12 years</div>
-                  <div className="text-base text-[#333333]">singular focus</div>
+                  <div className="text-base text-[#333333]">of singular focus on transition architecture</div>
                 </div>
               </div>
             </div>
