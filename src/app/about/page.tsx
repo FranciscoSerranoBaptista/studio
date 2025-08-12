@@ -26,7 +26,7 @@ export default function About() {
     <RootLayout>
       <PageIntro
         eyebrow="Executive Transition Advisor"
-        title="I architect executive success."
+        title="I prevent executive failure."
       >
         <p>
           Systematic intervention for complex leadership transitions.
