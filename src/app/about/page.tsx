@@ -29,7 +29,7 @@ export default function About() {
         title="I architect executive success."
       >
         <p>
-          200+ senior executives. 15 countries. 87% success rate.
+          Systematic intervention for complex leadership transitions.
         </p>
       </PageIntro>
 
@@ -54,7 +54,11 @@ export default function About() {
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <div className="text-xl font-semibold text-[#003C71]">200+</div>
-                  <div className="text-base text-[#333333]">executives</div>
+                  <div className="text-base text-[#333333]">senior executives</div>
+                </div>
+                <div>
+                  <div className="text-xl font-semibold text-[#003C71]">15</div>
+                  <div className="text-base text-[#333333]">countries</div>
                 </div>
                 <div>
                   <div className="text-xl font-semibold text-[#003C71]">87%</div>
@@ -63,10 +67,6 @@ export default function About() {
                 <div>
                   <div className="text-xl font-semibold text-[#003C71]">12 years</div>
                   <div className="text-base text-[#333333]">singular focus</div>
-                </div>
-                <div>
-                  <div className="text-xl font-semibold text-[#003C71]">MIT, Hogan, IFS</div>
-                  <div className="text-base text-[#333333]">credentials</div>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function About() {
                   Why systematic diagnosis over coaching support
                 </h3>
                 <p>
-                  Coaches help you find answers. I diagnose what&apos;s happening based on 200+ documented patterns.
+                  Coaches help you find answers. I diagnose what&apos;s happening based on documented patterns and proven methodologies.
                   Others support. I diagnose and architect solutions. It&apos;s the difference between therapy and surgery.
                 </p>
               </div>
