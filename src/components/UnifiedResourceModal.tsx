@@ -137,14 +137,39 @@ export function UnifiedResourceModal({
       `${firstName.trim()} has downloaded ${resource.title} and may be interested in strategic assessment. ${followUpMap[templateType]}`
 
     return {
+      // EmailJS template variables (matching your existing template structure)
       to_email: env.NEXT_PUBLIC_NOTIFICATION_EMAIL,
       from_name: 'Executive Transition Advisory',
       subject,
+      
+      // Map our data to template variables
+      executive_name: firstName.trim(),
+      executive_email: email,
+      executive_title: 'Not Provided', 
+      executive_organization: 'Not Provided',
+      executive_phone: 'Not Provided',
+      
+      // Resource-specific data
+      transition_context: `Resource Download: ${resource.title}`,
+      urgency_timeline: 'Immediate (Resource Download)',
+      stakes_question: 'Resource download indicates potential interest in strategic assessment',
+      valuable_assessment: baseMessage,
+      
+      // Complexity indicators (defaults for resource downloads)
+      pl_responsibility: 'To be determined',
+      team_size_direct: 'To be determined', 
+      team_size_total: 'To be determined',
+      geographic_scope: 'To be determined',
+      matrix_complexity: 'To be determined',
+      
+      booking_reminder: 'Follow up within 48 hours for strategic assessment discussion',
+      timestamp: new Date().toLocaleString(),
+      
+      // Legacy fields for backward compatibility
       firstName: firstName.trim(),
       executiveEmail: email,
       resource: resource.title,
       resourceType: resource.type || 'Unknown',
-      timestamp: new Date().toLocaleString(),
       priority,
       message: baseMessage
     }
