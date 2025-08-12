@@ -216,6 +216,20 @@ export default function About() {
         </FadeIn>
       </Container>
 
+      {/* PERSONAL INSIGHT */}
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="space-y-6 text-lg text-[#333333]">
+              <p>I&apos;ve sat across from 200+ executives in crisis.</p>
+              <p>The ones who succeed share one trait:</p>
+              <p>They seek diagnosis before it&apos;s too late.</p>
+              <p className="text-xl font-medium text-[#003C71]">Your assessment awaits.</p>
+            </div>
+          </div>
+        </FadeIn>
+      </Container>
+
       {/* THE DECISION */}
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <FadeIn>
