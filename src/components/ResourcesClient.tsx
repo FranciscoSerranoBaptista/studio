@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/Button'
 import { DiagnosticModal } from '@/components/DiagnosticModal'
 import { ResourceDownloadModal } from '@/components/ResourceDownloadModal'
+import { DocumentModal } from '@/components/DocumentModal'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 
 const resources = [
@@ -73,10 +74,12 @@ function ResourceCard({
   resource,
   onDiagnosticClick,
   onResourceClick,
+  onDocumentClick,
 }: {
   resource: (typeof resources)[0]
   onDiagnosticClick?: () => void
   onResourceClick?: () => void
+  onDocumentClick?: () => void
 }) {
   return (
     <FadeIn>
@@ -115,6 +118,14 @@ function ResourceCard({
             >
               {resource.action}
             </Button>
+          ) : resource.title === 'Mutual Confidentiality Agreement' ? (
+            <Button
+              onClick={onDocumentClick}
+              className="w-full"
+              aria-label={`${resource.action} - ${resource.title}`}
+            >
+              {resource.action}
+            </Button>
           ) : resource.gated ? (
             <Button
               onClick={onResourceClick}
@@ -141,6 +152,7 @@ function ResourceCard({
 export function ResourcesClient() {
   const [isDiagnosticModalOpen, setIsDiagnosticModalOpen] = useState(false)
   const [selectedResource, setSelectedResource] = useState<(typeof resources)[0] | null>(null)
+  const [selectedDocument, setSelectedDocument] = useState<(typeof resources)[0] | null>(null)
 
   return (
     <>
@@ -153,6 +165,7 @@ export function ResourcesClient() {
               resource={resource}
               onDiagnosticClick={() => setIsDiagnosticModalOpen(true)}
               onResourceClick={() => setSelectedResource(resource)}
+              onDocumentClick={() => setSelectedDocument(resource)}
             />
           ))}
         </FadeInStagger>
@@ -164,6 +177,7 @@ export function ResourcesClient() {
               key={resource.title} 
               resource={resource}
               onResourceClick={() => setSelectedResource(resource)}
+              onDocumentClick={() => setSelectedDocument(resource)}
             />
           ))}
         </FadeInStagger>
@@ -179,6 +193,14 @@ export function ResourcesClient() {
           isOpen={!!selectedResource}
           onClose={() => setSelectedResource(null)}
           resource={selectedResource}
+        />
+      )}
+      
+      {selectedDocument && (
+        <DocumentModal
+          isOpen={!!selectedDocument}
+          onClose={() => setSelectedDocument(null)}
+          resource={selectedDocument}
         />
       )}
     </>
