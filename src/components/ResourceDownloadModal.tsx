@@ -95,7 +95,18 @@ export function ResourceDownloadModal({ isOpen, onClose, resource }: ResourceDow
       
     } catch (error) {
       console.error('Error sending notification:', error)
-      alert('There was an error processing your request. Please try again.')
+      // Still allow download even if notification fails
+      setIsSubmitted(true)
+      const link = document.createElement('a')
+      link.href = resource.href
+      // Extract filename from href or use a clean version of the title
+      const filename = resource.href.split('/').pop()?.replace(/%20/g, ' ') || 
+                      resource.title.replace(/[^a-zA-Z0-9]/g, '-') + '.pdf'
+      link.download = filename
+      link.target = '_blank'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     } finally {
       setIsSubmitting(false)
     }

@@ -72,6 +72,15 @@ export function DiagnosticModal({ isOpen, onClose }: DiagnosticModalProps) {
       const responseText = await response.text()
       console.log('EmailJS response:', responseText)
       
+      // Log environment variables for debugging
+      console.log('EmailJS Environment Check:', {
+        hasServiceId: !!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        hasTemplateId: !!process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        hasPublicKey: !!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+      })
+      
       if (response.ok) {
         console.log('Email notification sent successfully')
         setIsSubmitted(true)
