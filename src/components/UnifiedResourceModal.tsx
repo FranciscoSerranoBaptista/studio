@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import { Button } from '@/components/Button'
+import { env } from '@/env'
 
 // Comprehensive resource type definition
 export interface ResourceData {
@@ -136,7 +137,7 @@ export function UnifiedResourceModal({
       `${firstName.trim()} has downloaded ${resource.title} and may be interested in strategic assessment. ${followUpMap[templateType]}`
 
     return {
-      to_email: process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || 'francisco@example.com',
+      to_email: env.NEXT_PUBLIC_NOTIFICATION_EMAIL,
       from_name: 'Executive Transition Advisory',
       subject,
       firstName: firstName.trim(),
@@ -202,21 +203,14 @@ export function UnifiedResourceModal({
       const emailData = generateEmailData(firstName, email)
       
       const payload = {
-        service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        service_id: env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        template_id: env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        user_id: env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
         template_params: emailData
       }
       
-      // Validate EmailJS configuration
-      if (!payload.service_id || !payload.template_id || !payload.user_id) {
-        console.warn('EmailJS configuration incomplete:', {
-          hasServiceId: !!payload.service_id,
-          hasTemplateId: !!payload.template_id,
-          hasUserId: !!payload.user_id
-        })
-        throw new Error('Email service configuration incomplete')
-      }
+      // Configuration is validated at build time by T3 Env
+      console.log('EmailJS configuration validated at build time')
       
       console.log('Sending email notification:', {
         resource: resource.title,

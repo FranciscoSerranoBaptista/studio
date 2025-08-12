@@ -11,6 +11,9 @@ import rehypeUnwrapImages from 'rehype-unwrap-images'
 import shiki from 'shiki'
 import { unifiedConditional } from 'unified-conditional'
 
+// Import env validation to ensure it runs at build time
+import './src/env.ts'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
