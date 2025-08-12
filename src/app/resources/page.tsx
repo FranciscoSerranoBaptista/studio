@@ -5,6 +5,8 @@ import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
 import { ResourcesClient } from '@/components/ResourcesClient'
+import { EnvDebug } from '@/components/EnvDebug'
+import { EmailTestButton } from '@/components/EmailTestButton'
 
 export const metadata: Metadata = {
   title: 'Resources - Executive Transition Advisory',
@@ -57,6 +59,9 @@ export default function Resources() {
           </div>
         </FadeIn>
       </Container>
+      
+      <EnvDebug />
+      <EmailTestButton />
     </RootLayout>
   )
 }

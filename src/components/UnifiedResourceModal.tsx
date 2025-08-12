@@ -200,7 +200,32 @@ export function UnifiedResourceModal({
   // Send email notification
   const sendEmailNotification = useCallback(async (): Promise<boolean> => {
     try {
+      // COMPREHENSIVE DEBUG LOGGING
+      console.group('🔍 EMAIL DEBUG - START')
+      
+      // Check environment variables at runtime
+      console.log('Environment Variables Check:', {
+        NODE_ENV: process.env.NODE_ENV,
+        hasServiceId: !!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        hasTemplateId: !!process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        hasPublicKey: !!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        hasNotificationEmail: !!process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL,
+        serviceIdValue: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'MISSING',
+        templateIdValue: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'MISSING',
+        publicKeyValue: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'MISSING',
+        notificationEmail: process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || 'MISSING'
+      })
+      
+      // Check T3 Env values
+      console.log('T3 Env Values Check:', {
+        envServiceId: env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        envTemplateId: env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        envPublicKey: env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        envNotificationEmail: env.NEXT_PUBLIC_NOTIFICATION_EMAIL
+      })
+      
       const emailData = generateEmailData(firstName, email)
+      console.log('Generated Email Data:', emailData)
       
       const payload = {
         service_id: env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -209,13 +234,17 @@ export function UnifiedResourceModal({
         template_params: emailData
       }
       
-      // Configuration is validated at build time by T3 Env
-      console.log('EmailJS configuration validated at build time')
+      console.log('EmailJS Payload:', {
+        service_id: payload.service_id,
+        template_id: payload.template_id,
+        user_id: payload.user_id ? `${payload.user_id.substring(0, 8)}...` : 'MISSING',
+        templateParamsCount: Object.keys(payload.template_params).length
+      })
       
       console.log('Sending email notification:', {
         resource: resource.title,
         recipient: emailData.executiveEmail,
-        hasAllConfig: !!(payload.service_id && payload.template_id && payload.user_id)
+        timestamp: new Date().toISOString()
       })
       
       const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -226,23 +255,36 @@ export function UnifiedResourceModal({
         body: JSON.stringify(payload)
       })
       
-      console.log('EmailJS response status:', response.status)
+      console.log('EmailJS Response Status:', response.status)
+      const responseText = await response.text()
+      console.log('EmailJS Response Body:', responseText)
       
       if (response.ok) {
-        console.log('Email notification sent successfully')
+        console.log('✅ Email notification sent successfully!')
+        console.groupEnd()
         onEmailSuccess?.(resource, emailData)
         return true
       } else {
-        const errorText = await response.text()
-        console.error('EmailJS Error:', {
+        console.error('❌ EmailJS Error Details:', {
           status: response.status,
           statusText: response.statusText,
-          body: errorText
+          responseBody: responseText,
+          requestPayload: {
+            service_id: payload.service_id,
+            template_id: payload.template_id,
+            user_id: payload.user_id ? 'PRESENT' : 'MISSING'
+          }
         })
-        throw new Error(`EmailJS Error ${response.status}: ${errorText}`)
+        console.groupEnd()
+        throw new Error(`EmailJS Error ${response.status}: ${responseText}`)
       }
     } catch (error) {
-      console.error('Email notification failed:', error)
+      console.error('💥 Email notification failed:', error)
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined
+      })
+      console.groupEnd()
       onEmailFailure?.(resource, error)
       return false
     }
