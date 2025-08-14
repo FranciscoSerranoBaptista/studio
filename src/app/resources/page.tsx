@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 export default function Resources() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Executive Resources" title="Diagnostic Tools and Strategic Resources">
+      <PageIntro eyebrow="Risk Assessment Tools" title="Identify Your Exposure Level">
         <p className="text-base text-[#333333]">
-          For executives evaluating transition complexity before strategic assessment.
+          Quick diagnostics reveal risk patterns. Full architecture reserved for qualified executives.
         </p>
       </PageIntro>
 
@@ -32,8 +32,9 @@ export default function Resources() {
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-xs text-[#666666] space-y-1">
-              <p>Note: Resources updated quarterly based on emerging patterns.</p>
-              <p>No newsletter. No spam. No coaching.</p>
+              <p>Note: These simplified tools identify symptoms, not solutions.</p>
+              <p>The complete Executive Transition Architecture™ (200+ intervention protocols)</p>
+              <p>is proprietary IP revealed during Strategic Assessment.</p>
             </div>
           </div>
         </FadeIn>
@@ -44,11 +45,11 @@ export default function Resources() {
           <div className="rounded-3xl bg-[#003C71] px-6 py-20 sm:px-10 sm:py-32 md:px-20">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-display text-3xl font-medium text-white sm:text-4xl">
-                Ready for Strategic Assessment?
+                Risk Scanner Shows Red Flags?
               </h2>
               <p className="mt-6 text-lg text-white/80">
-                If you meet executive criteria (€50M+ P&L, 100+ team, board exposure), 
-                bypass resources and request direct assessment.
+                These tools reveal symptoms. The intervention architecture that prevents 
+                €2.5M failures is reserved for Strategic Assessment participants.
               </p>
               <div className="mt-10">
                 <Button href="/assessment" invert>

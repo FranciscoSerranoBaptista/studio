@@ -15,58 +15,49 @@ interface ResourceDownload {
 
 const resources: ResourceDownload[] = [
   {
+    id: 'risk-scanner',
+    title: 'Executive Transition Risk Scanner™',
+    description:
+      'Quick diagnostic: Identify your exposure to the 5 fatal patterns. Takes 3 minutes. Reveals risk level without intervention architecture.',
+    type: 'pdf',
+    icon: '🎯',
+    downloadUrl: '/assets/executive-transition-risk-scanner.pdf',
+  },
+  {
     id: 'mutual-nda',
     title: 'Mutual NDA Template',
     description:
       'Standard confidentiality agreement for strategic executive conversations. Swiss and US legal frameworks.',
     type: 'pdf',
     icon: '🔒',
-    downloadUrl: '/resources/mutual-nda-template.pdf',
-  },
-  {
-    id: 'complexity-criteria',
-    title: 'Executive Complexity Assessment',
-    description:
-      'Complete diagnostic framework for evaluating transition complexity and qualification criteria.',
-    type: 'pdf',
-    icon: '📊',
-    downloadUrl: '/resources/executive-complexity-assessment.pdf',
+    downloadUrl: '/assets/Mutual-Confidentiality-Agreement-Executive-Assessment.docx',
   },
   {
     id: 'employer-expense',
     title: 'Employer Investment Framework',
     description:
-      'ROI analysis and expense justification template for executive development investments.',
+      'ROI analysis template: €2.5M failure cost vs. €45K intervention investment. Board-ready justification.',
     type: 'docx',
     icon: '💼',
-    downloadUrl: '/resources/employer-investment-framework.docx',
+    downloadUrl: '/assets/employer-investment-framework.docx',
   },
   {
-    id: 'transition-survival-guide',
-    title: 'Executive Transition Survival Guide',
+    id: 'case-study-investment-bank',
+    title: 'Case Study: German Investment Banking MD',
     description:
-      '7 failure patterns in the first 100 days, stakeholder alignment framework, and self-assessment tools.',
-    type: 'guide',
-    icon: '🎯',
-    downloadUrl: '/resources/executive-transition-survival-guide.pdf',
-  },
-  {
-    id: 'failure-patterns',
-    title: 'The Five Patterns of Executive Failure',
-    description:
-      'Research-based analysis of predictable failure modes in senior leadership transitions.',
+      'How systematic architecture prevented Week 7 isolation trap. Names redacted, patterns revealed.',
     type: 'pdf',
-    icon: '⚠️',
-    downloadUrl: '/resources/five-patterns-executive-failure.pdf',
+    icon: '📈',
+    downloadUrl: '/assets/Executive Case Study - Global Professional Services.pdf',
   },
   {
-    id: 'stakeholder-mapping',
-    title: 'Stakeholder Power Dynamics Framework',
+    id: 'board-presentation',
+    title: 'Board Presentation Template',
     description:
-      'Systematic approach to mapping influence networks and political capital in complex organizations.',
+      'Executive transition risk framework for board discussions. Positions architecture as risk mitigation.',
     type: 'pdf',
-    icon: '🗺️',
-    downloadUrl: '/resources/stakeholder-power-dynamics-framework.pdf',
+    icon: '📊',
+    downloadUrl: '/assets/board-presentation-template.pdf',
   },
 ]
 
@@ -88,59 +79,63 @@ export function ExecutiveResources() {
       <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-neutral-950/5">
         <div className="mb-8">
           <h3 className="mb-4 font-display text-2xl font-semibold text-brand-navy">
-            Executive Resources & Downloads
+            Strategic Resources Library
           </h3>
           <p className="text-neutral-600">
-            Professional frameworks and templates for senior executives
-            navigating complex transitions.
+            Curated tools for risk assessment. Full diagnostic architecture revealed during Strategic Assessment.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {resources.map((resource) => (
-            <button
+            <div
               key={resource.id}
-              className="w-full text-left cursor-pointer rounded-2xl border border-neutral-200 p-6 transition-colors hover:border-brand-blue"
-              onClick={() =>
-                setSelectedResource(
-                  selectedResource === resource.id ? null : resource.id,
-                )
-              }
-              aria-expanded={selectedResource === resource.id}
-              aria-controls={`resource-content-${resource.id}`}
+              className="rounded-2xl border border-neutral-200 p-6 transition-colors hover:border-brand-blue"
             >
-              <div className="mb-4 flex items-start justify-between">
-                <div className="flex items-center">
-                  <span className="mr-3 text-2xl">{resource.icon}</span>
-                  <div>
-                    <h4 className="font-display text-lg font-semibold text-neutral-950">
-                      {resource.title}
-                    </h4>
-                    <span className="inline-flex items-center rounded-full bg-neutral-100 px-2 py-1 text-xs font-medium tracking-wider text-neutral-600 uppercase">
-                      {resource.type}
-                    </span>
+              <div 
+                className="cursor-pointer"
+                onClick={() =>
+                  setSelectedResource(
+                    selectedResource === resource.id ? null : resource.id,
+                  )
+                }
+                aria-expanded={selectedResource === resource.id}
+                aria-controls={`resource-content-${resource.id}`}
+              >
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex items-center">
+                    <span className="mr-3 text-2xl">{resource.icon}</span>
+                    <div>
+                      <h4 className="font-display text-lg font-semibold text-neutral-950">
+                        {resource.title}
+                      </h4>
+                      <span className="inline-flex items-center rounded-full bg-neutral-100 px-2 py-1 text-xs font-medium tracking-wider text-neutral-600 uppercase">
+                        {resource.type}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-neutral-400 hover:text-brand-navy transition-transform duration-200" 
+                       style={{ transform: selectedResource === resource.id ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
                   </div>
                 </div>
-                <button className="text-neutral-400 hover:text-brand-navy">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-              </div>
 
-              <p className="mb-4 text-sm text-neutral-600">
-                {resource.description}
-              </p>
+                <p className="mb-4 text-sm text-neutral-600">
+                  {resource.description}
+                </p>
+              </div>
 
               {selectedResource === resource.id && (
                 <div className="mt-4 border-t border-neutral-200 pt-4">
@@ -172,8 +167,8 @@ export function ExecutiveResources() {
                   ) : (
                     <div className="space-y-3">
                       <p className="text-sm text-neutral-500">
-                        This resource is available to qualified executives and
-                        strategic assessment participants.
+                        Access granted to executives preparing for Strategic Assessment.
+                        Full methodology reserved for engagement participants.
                       </p>
                       <div className="flex space-x-3">
                         <Button
@@ -190,17 +185,17 @@ export function ExecutiveResources() {
                   )}
                 </div>
               )}
-            </button>
+            </div>
           ))}
         </div>
 
         <div className="mt-8 rounded-2xl bg-brand-navy/5 p-6">
           <h4 className="mb-3 font-display text-lg font-semibold text-brand-navy">
-            Access Additional Resources
+            Proprietary Methodology Access
           </h4>
           <p className="mb-4 text-neutral-600">
-            Full resource library access is provided to executives participating
-            in Strategic Assessments or ongoing engagements.
+            The complete Executive Transition Architecture™ including intervention protocols,
+            stakeholder matrices, and pattern interruption sequences is revealed progressively during Strategic Assessment.
           </p>
           <div className="flex space-x-4">
             <Button href="/assessment" className="text-sm">
