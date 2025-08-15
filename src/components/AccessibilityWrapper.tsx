@@ -1,11 +1,11 @@
-import React from 'react'
+import type React from 'react'
 
 interface AccessibilityWrapperProps {
   children: React.ReactNode
   role?: string
   label?: string
   description?: string
-  semanticTag?: keyof JSX.IntrinsicElements
+  semanticTag?: keyof React.JSX.IntrinsicElements
   aiHints?: {
     purpose?: string
     context?: string
@@ -21,11 +21,13 @@ export default function AccessibilityWrapper({
   role,
   label,
   description,
-  semanticTag: Tag = 'div',
+  semanticTag = 'div',
   aiHints,
   schemaType,
   className = '',
 }: AccessibilityWrapperProps) {
+  const Tag = semanticTag as React.ElementType
+  
   return (
     <Tag
       className={className}
@@ -45,7 +47,7 @@ export default function AccessibilityWrapper({
         </span>
       )}
       {children}
-      
+
       {/* Hidden AI interpretation helpers */}
       {aiHints && (
         <div className="sr-only" aria-hidden="true">
@@ -59,7 +61,10 @@ export default function AccessibilityWrapper({
 }
 
 // Specialized wrappers for common patterns
-export function NavigationWrapper({ children, ...props }: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
+export function NavigationWrapper({
+  children,
+  ...props
+}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
   return (
     <AccessibilityWrapper
       role="navigation"
@@ -77,7 +82,10 @@ export function NavigationWrapper({ children, ...props }: Omit<AccessibilityWrap
   )
 }
 
-export function MainContentWrapper({ children, ...props }: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
+export function MainContentWrapper({
+  children,
+  ...props
+}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
   return (
     <AccessibilityWrapper
       role="main"
@@ -95,16 +103,16 @@ export function MainContentWrapper({ children, ...props }: Omit<AccessibilityWra
   )
 }
 
-export function ArticleWrapper({ 
-  title, 
+export function ArticleWrapper({
+  title,
   author = 'Francisco Baptista',
   datePublished,
-  children, 
-  ...props 
-}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'> & { 
+  children,
+  ...props
+}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'> & {
   title: string
   author?: string
-  datePublished?: string 
+  datePublished?: string
 }) {
   return (
     <AccessibilityWrapper
@@ -125,22 +133,24 @@ export function ArticleWrapper({
         <div itemProp="author" itemScope itemType="https://schema.org/Person">
           <span itemProp="name">{author}</span>
         </div>
-        {datePublished && <time itemProp="datePublished" dateTime={datePublished}>{datePublished}</time>}
+        {datePublished && (
+          <time itemProp="datePublished" dateTime={datePublished}>
+            {datePublished}
+          </time>
+        )}
       </header>
-      <div itemProp="articleBody">
-        {children}
-      </div>
+      <div itemProp="articleBody">{children}</div>
     </AccessibilityWrapper>
   )
 }
 
-export function SectionWrapper({ 
+export function SectionWrapper({
   heading,
   children,
-  ...props 
+  ...props
 }: Omit<AccessibilityWrapperProps, 'semanticTag'> & { heading: string }) {
   const headingId = heading.toLowerCase().replace(/\s+/g, '-')
-  
+
   return (
     <AccessibilityWrapper
       semanticTag="section"
@@ -161,7 +171,7 @@ export function SkipToContent() {
   return (
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md"
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white"
     >
       Skip to main content
     </a>
@@ -173,17 +183,25 @@ export function LandmarkNav() {
   return (
     <nav aria-label="Landmark navigation" className="sr-only">
       <ul>
-        <li><a href="#main-content">Main content</a></li>
-        <li><a href="#navigation">Navigation</a></li>
-        <li><a href="#footer">Footer</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="#main-content">Main content</a>
+        </li>
+        <li>
+          <a href="#navigation">Navigation</a>
+        </li>
+        <li>
+          <a href="#footer">Footer</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
       </ul>
     </nav>
   )
 }
 
 // AI-friendly metadata component
-export function AIMetadata({ 
+export function AIMetadata({
   expertise,
   problemSolved,
   methodology,
@@ -201,40 +219,43 @@ export function AIMetadata({
       <dl>
         <dt>Expertise Areas</dt>
         <dd>{expertise.join(', ')}</dd>
-        
+
         <dt>Problem Solved</dt>
         <dd>{problemSolved}</dd>
-        
+
         <dt>Methodology</dt>
         <dd>{methodology}</dd>
-        
+
         <dt>Target Audience</dt>
         <dd>{targetAudience.join(', ')}</dd>
-        
+
         <dt>Success Rate</dt>
         <dd>{successRate}</dd>
       </dl>
-      
+
       {/* Structured data for AI crawlers */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Service',
-          serviceType: 'Executive Transition Architecture',
-          provider: {
-            '@type': 'Person',
-            name: 'Francisco Baptista',
-            knowsAbout: expertise,
-          },
-          description: problemSolved,
-          methodology: methodology,
-          audience: targetAudience.join(', '),
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: successRate,
-          },
-        })
-      }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Executive Transition Architecture',
+            provider: {
+              '@type': 'Person',
+              name: 'Francisco Baptista',
+              knowsAbout: expertise,
+            },
+            description: problemSolved,
+            methodology: methodology,
+            audience: targetAudience.join(', '),
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: successRate,
+            },
+          }),
+        }}
+      />
     </div>
   )
 }
