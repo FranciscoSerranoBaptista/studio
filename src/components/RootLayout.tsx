@@ -10,6 +10,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
 } from 'react'
 
 import { Button } from '@/components/Button'
@@ -20,7 +21,11 @@ import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 
-const RootLayoutContext = createContext<{} | null>(null)
+interface RootLayoutContextType {
+  // Context is currently empty but maintained for future extensions
+}
+
+const RootLayoutContext = createContext<RootLayoutContextType | null>(null)
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -268,7 +273,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 export function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   return (
-    <RootLayoutContext.Provider value={{}}>
+    <RootLayoutContext.Provider value={{} as RootLayoutContextType}>
       <PerformanceMonitor />
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
