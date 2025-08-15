@@ -56,7 +56,7 @@ export default function GlobalError({
               fontSize: '1.125rem',
             }}
           >
-            We've encountered an unexpected complexity in our technical
+            We&apos;ve encountered an unexpected complexity in our technical
             architecture. Unlike executive transitions where we maintain an 87%
             success rate, this particular exception requires immediate
             engineering intervention.
@@ -115,6 +115,7 @@ export default function GlobalError({
               Attempt Recovery
             </button>
 
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a
               href="/"
               style={{

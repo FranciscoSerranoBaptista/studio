@@ -1,6 +1,7 @@
 'use client'
 
 import { useId } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -58,7 +59,7 @@ export default function BookingConfirmed() {
           <div className="mx-auto max-w-3xl">
             <div className="rounded-2xl bg-gradient-to-br from-[#F8F8F8] to-[#F5F5F5] p-10 shadow-sm">
               <h2 className="mb-8 text-2xl font-semibold text-[#003C71]">
-                What We'll Accomplish Together
+                What We&apos;ll Accomplish Together
               </h2>
 
               <div className="grid gap-8 md:grid-cols-2">
@@ -139,7 +140,7 @@ export default function BookingConfirmed() {
                     </h3>
                     <p className="text-sm leading-relaxed text-[#333333]">
                       Consider your stakeholder landscape, organizational
-                      dynamics, and the specific complexities you're navigating.
+                      dynamics, and the specific complexities you&apos;re navigating.
                       What keeps you strategically alert at 3am?
                     </p>
                   </div>
@@ -223,7 +224,7 @@ export default function BookingConfirmed() {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 text-center">
               <h3 className="mb-3 text-lg font-semibold text-[#003C71]">
-                You're in Distinguished Company
+                You&apos;re in Distinguished Company
               </h3>
               <p className="leading-relaxed text-[#666666]">
                 Over 200 Managing Directors and C-Suite executives have
@@ -316,12 +317,12 @@ export default function BookingConfirmed() {
             </div>
 
             <div className="mt-12">
-              <a
+              <Link
                 href="/"
                 className="text-sm text-[#666666] transition hover:text-[#003C71]"
               >
                 Return to Homepage →
-              </a>
+              </Link>
             </div>
           </div>
         </FadeIn>

@@ -13,7 +13,12 @@ interface VitalsPayload {
   metric: VitalMetric
   page: string
   userAgent: string
-  connection: any
+  connection: {
+    effectiveType?: string
+    downlink?: number
+    rtt?: number
+    saveData?: boolean
+  } | null
   timestamp: string
   viewport: {
     width: number
@@ -177,7 +182,7 @@ function getRecommendations(metric: VitalMetric): string[] {
 }
 
 // GET endpoint for retrieving aggregated metrics (for monitoring dashboards)
-export async function GET(request: NextRequest) {
+export async function GET() {
   // In production, this would query from a database
   // For now, return sample aggregated data
   

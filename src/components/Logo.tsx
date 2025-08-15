@@ -31,13 +31,9 @@ export function Logomark({
 export function Logo({
   className,
   invert = false,
-  filled: _filled,
-  fillOnHover: _fillOnHover,
   ...props
 }: React.ComponentPropsWithoutRef<'div'> & {
   invert?: boolean
-  filled?: boolean
-  fillOnHover?: boolean
 }) {
   return (
     <div className={clsx('flex items-center', className)} {...props}>

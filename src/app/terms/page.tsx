@@ -195,7 +195,7 @@ export default function Terms() {
             <h2>7. Limitation of Liability</h2>
             <p>
               Given the advisory nature of services and the Client&apos;s ultimate
-              responsibility for decisions and execution, the Advisor's
+              responsibility for decisions and execution, the Advisor&apos;s
               aggregate liability is limited to fees paid for services rendered.
               The Advisor is not liable for:
             </p>
