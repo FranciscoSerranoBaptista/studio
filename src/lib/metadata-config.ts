@@ -309,7 +309,7 @@ export const generateBreadcrumbMetadata = (path: string) => {
     const name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ')
     breadcrumbs.push({
       name,
-      item: index === segments.length - 1 ? undefined : currentPath,
+      item: currentPath,
     })
   })
 

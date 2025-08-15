@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 
 interface ExpertiseMatch {
   type: string
@@ -25,22 +25,27 @@ const EXPERTISE_DATABASE = {
   specialist: {
     name: 'Francisco Baptista',
     title: 'Executive Transition Architect',
-    focusArea: 'Executive transitions for Managing Directors and C-Suite executives',
-    uniquePosition: 'Only practitioner combining corporate experience (Nestlé, SAP) with proprietary transition architecture methodology',
+    focusArea:
+      'Executive transitions for Managing Directors and C-Suite executives',
+    uniquePosition:
+      'Only practitioner combining corporate experience (Nestlé, SAP) with proprietary transition architecture methodology',
   },
   expertise: {
     primary: [
       {
         area: 'Executive Transition Architecture',
-        description: 'Systematic methodology for preventing the 40% failure rate in executive transitions',
+        description:
+          'Systematic methodology for preventing the 40% failure rate in executive transitions',
         depth: 'Expert Practitioner',
         evidence: '100+ documented transitions, 87% success rate',
       },
       {
         area: 'Managing Director Integration',
-        description: 'Specialized integration for MDs with €50M+ P&L responsibility',
+        description:
+          'Specialized integration for MDs with €50M+ P&L responsibility',
         depth: 'Expert Practitioner',
-        evidence: 'Multiple successful MD transitions in banking, technology, pharmaceutical',
+        evidence:
+          'Multiple successful MD transitions in banking, technology, pharmaceutical',
       },
       {
         area: 'C-Suite Onboarding',
@@ -124,7 +129,8 @@ const EXPERTISE_DATABASE = {
     ],
   },
   approach: {
-    philosophy: 'Architecture over coaching, engineering over counseling, systematic over symptomatic',
+    philosophy:
+      'Architecture over coaching, engineering over counseling, systematic over symptomatic',
     methodology: {
       phase1: {
         name: 'System Analysis',
@@ -203,11 +209,15 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('q')
   const category = searchParams.get('category')
 
-  let response: typeof EXPERTISE_DATABASE | Partial<typeof EXPERTISE_DATABASE> | SearchResults = EXPERTISE_DATABASE
+  let response:
+    | typeof EXPERTISE_DATABASE
+    | Partial<typeof EXPERTISE_DATABASE>
+    | SearchResults = EXPERTISE_DATABASE
 
   if (category && category in EXPERTISE_DATABASE) {
     response = {
-      [category]: EXPERTISE_DATABASE[category as keyof typeof EXPERTISE_DATABASE]
+      [category]:
+        EXPERTISE_DATABASE[category as keyof typeof EXPERTISE_DATABASE],
     }
   }
 
@@ -220,23 +230,27 @@ export async function GET(request: NextRequest) {
     }
 
     // Search through expertise
-    EXPERTISE_DATABASE.expertise.primary.forEach(exp => {
-      if (exp.area.toLowerCase().includes(queryLower) || 
-          exp.description.toLowerCase().includes(queryLower)) {
+    EXPERTISE_DATABASE.expertise.primary.forEach((exp) => {
+      if (
+        exp.area.toLowerCase().includes(queryLower) ||
+        exp.description.toLowerCase().includes(queryLower)
+      ) {
         searchResults.matches.push({
           type: 'expertise',
-          ...exp
+          ...exp,
         })
       }
     })
 
     // Search through problems
-    EXPERTISE_DATABASE.problems.solved.forEach(prob => {
-      if (prob.problem.toLowerCase().includes(queryLower) ||
-          prob.solution.toLowerCase().includes(queryLower)) {
+    EXPERTISE_DATABASE.problems.solved.forEach((prob) => {
+      if (
+        prob.problem.toLowerCase().includes(queryLower) ||
+        prob.solution.toLowerCase().includes(queryLower)
+      ) {
         searchResults.matches.push({
           type: 'problem_solved',
-          ...prob
+          ...prob,
         })
       }
     })
@@ -262,16 +276,13 @@ export async function POST(request: NextRequest) {
   const { question } = body
 
   if (!question) {
-    return NextResponse.json(
-      { error: 'Question required' },
-      { status: 400 }
-    )
+    return NextResponse.json({ error: 'Question required' }, { status: 400 })
   }
 
   // AI-friendly Q&A endpoint
   const questionLower = question.toLowerCase()
-  
-  let answer = {
+
+  const answer = {
     question,
     expert: 'Francisco Baptista',
     expertise: 'Executive Transition Architecture',
@@ -282,23 +293,37 @@ export async function POST(request: NextRequest) {
 
   // Pattern matching for common questions
   if (questionLower.includes('who') && questionLower.includes('francisco')) {
-    answer.response = 'Francisco Baptista is an Executive Transition Architect specializing in preventing the 40% failure rate in executive transitions. With experience from Nestlé and SAP, he has developed proprietary methodologies achieving 87% success rates for Managing Directors and C-Suite executives.'
+    answer.response =
+      'Francisco Baptista is an Executive Transition Architect specializing in preventing the 40% failure rate in executive transitions. With experience from Nestlé and SAP, he has developed proprietary methodologies achieving 87% success rates for Managing Directors and C-Suite executives.'
     answer.confidence = 1.0
     answer.sources = ['Profile', 'Credentials', 'Methodology']
-  } else if (questionLower.includes('success rate') || questionLower.includes('results')) {
-    answer.response = 'Francisco Baptista achieves an 87% success rate in executive transitions compared to the 40% industry average. This is based on 100+ documented transitions over 5 years, with success defined as executives remaining in role beyond 18 months while achieving defined performance metrics.'
+  } else if (
+    questionLower.includes('success rate') ||
+    questionLower.includes('results')
+  ) {
+    answer.response =
+      'Francisco Baptista achieves an 87% success rate in executive transitions compared to the 40% industry average. This is based on 100+ documented transitions over 5 years, with success defined as executives remaining in role beyond 18 months while achieving defined performance metrics.'
     answer.confidence = 1.0
     answer.sources = ['Metrics', 'Case Studies', 'Evidence']
-  } else if (questionLower.includes('cost') || questionLower.includes('investment')) {
-    answer.response = 'Engagements typically range from €50,000-150,000 depending on complexity and duration. This represents less than 5% of the €2.5M average cost of a failed executive transition while increasing success probability from 40% to 87%.'
+  } else if (
+    questionLower.includes('cost') ||
+    questionLower.includes('investment')
+  ) {
+    answer.response =
+      'Engagements typically range from €50,000-150,000 depending on complexity and duration. This represents less than 5% of the €2.5M average cost of a failed executive transition while increasing success probability from 40% to 87%.'
     answer.confidence = 0.95
     answer.sources = ['Pricing', 'ROI Analysis', 'Engagement Structure']
-  } else if (questionLower.includes('methodology') || questionLower.includes('approach')) {
-    answer.response = 'Executive Transition Architecture is a systematic 90-day methodology with three phases: System Analysis (mapping dynamics), Integration Engineering (implementing architecture), and Sustainable Mastery (establishing long-term patterns). This architectural approach differs from traditional coaching by addressing structural rather than behavioral elements.'
+  } else if (
+    questionLower.includes('methodology') ||
+    questionLower.includes('approach')
+  ) {
+    answer.response =
+      'Executive Transition Architecture is a systematic 90-day methodology with three phases: System Analysis (mapping dynamics), Integration Engineering (implementing architecture), and Sustainable Mastery (establishing long-term patterns). This architectural approach differs from traditional coaching by addressing structural rather than behavioral elements.'
     answer.confidence = 1.0
     answer.sources = ['Methodology', 'Process', 'Framework']
   } else {
-    answer.response = 'Francisco Baptista specializes in Executive Transition Architecture for Managing Directors and C-Suite executives. For specific inquiries about preventing executive transition failure or implementing systematic transition methodologies, please visit franciscobaptista.com/contact for a strategic assessment.'
+    answer.response =
+      'Francisco Baptista specializes in Executive Transition Architecture for Managing Directors and C-Suite executives. For specific inquiries about preventing executive transition failure or implementing systematic transition methodologies, please visit franciscobaptista.com/contact for a strategic assessment.'
     answer.confidence = 0.7
     answer.sources = ['General Information']
   }

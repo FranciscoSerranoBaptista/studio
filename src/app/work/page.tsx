@@ -504,7 +504,7 @@ export default function Work() {
     industry: case_.sector,
     challenge: case_.presentingChallenge,
     solution: case_.integrationApproach,
-    result: case_.measuredOutcomes ? case_.measuredOutcomes.join('; ') : case_.impact,
+    result: case_.measuredOutcomes ? case_.measuredOutcomes.join('; ') : (case_.impact || ''),
     datePublished: new Date().toISOString(),
   }))
 
