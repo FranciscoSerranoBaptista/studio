@@ -1,5 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+interface ExpertiseMatch {
+  type: string
+  area?: string
+  description?: string
+  depth?: string
+  evidence?: string
+  problem?: string
+  frequency?: string
+  timing?: string
+  cost?: string
+  impact?: string
+  solution?: string
+  success_rate?: string
+}
+
+interface SearchResults {
+  query: string
+  matches: ExpertiseMatch[]
+  specialist: typeof EXPERTISE_DATABASE.specialist
+}
+
 const EXPERTISE_DATABASE = {
   specialist: {
     name: 'Francisco Baptista',
@@ -182,19 +203,19 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('q')
   const category = searchParams.get('category')
 
-  let response = EXPERTISE_DATABASE
+  let response: typeof EXPERTISE_DATABASE | Partial<typeof EXPERTISE_DATABASE> | SearchResults = EXPERTISE_DATABASE
 
   if (category && category in EXPERTISE_DATABASE) {
     response = {
       [category]: EXPERTISE_DATABASE[category as keyof typeof EXPERTISE_DATABASE]
-    } as any
+    }
   }
 
   if (query) {
     const queryLower = query.toLowerCase()
-    const searchResults = {
+    const searchResults: SearchResults = {
       query,
-      matches: [] as any[],
+      matches: [],
       specialist: EXPERTISE_DATABASE.specialist,
     }
 
@@ -220,7 +241,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-    response = searchResults as any
+    response = searchResults
   }
 
   return NextResponse.json(response, {
