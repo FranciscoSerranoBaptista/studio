@@ -1,25 +1,33 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import { Container } from '@/components/Container'
+import FAQSection from '@/components/FAQSection'
 import { FadeIn } from '@/components/FadeIn'
-import { RootLayout } from '@/components/RootLayout'
 import { AbstractFaces } from '@/components/illustrations/AbstractFaces'
+import { RootLayout } from '@/components/RootLayout'
+import { EXECUTIVE_FAQ } from '@/data/faq-content'
+import { generatePageMetadata, PAGE_METADATA } from '@/lib/metadata-config'
+import {
+  generateArticleSchema,
+  generateServiceSchema,
+} from '@/lib/structured-data'
 
 // Screen 1: The Hook
 function ScreenOne() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-24 pb-16">
+    <section className="flex min-h-screen items-center justify-center pt-24 pb-16">
       <Container>
         <FadeIn immediate className="text-center">
-          <h1 className="font-display text-6xl font-medium tracking-tight text-[#003C71] sm:text-8xl mb-8">
+          <h1 className="sm:text-8xl mb-8 font-display text-6xl font-medium tracking-tight text-[#003C71]">
             40% of executive transitions fail.
           </h1>
-          <p className="text-2xl font-medium text-[#003C71] mb-12">
+          <p className="mb-12 text-2xl font-medium text-[#003C71]">
             Yours doesn&apos;t have to.
           </p>
-          <a 
-            href="#qualify" 
-            className="inline-block bg-[#003C71] text-white font-medium px-8 py-4 rounded-lg text-lg hover:bg-[#002A52] transition-colors"
+          <a
+            href="#qualify"
+            className="inline-block rounded-lg bg-[#003C71] px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-[#002A52]"
           >
             Evaluate Strategic Fit
           </a>
@@ -32,23 +40,33 @@ function ScreenOne() {
 // Screen 2: The Timeline
 function ScreenTwo() {
   return (
-    <section className="min-h-screen flex items-center justify-center py-16">
+    <section className="flex min-h-screen items-center justify-center py-16">
       <Container>
-        <FadeIn className="text-center max-w-3xl mx-auto">
-          <h2 className="font-display text-4xl font-medium text-[#003C71] mb-8">
+        <FadeIn className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-8 font-display text-4xl font-medium text-[#003C71]">
             The timeline already started
           </h2>
-          <div className="space-y-6 text-xl text-[#333333] mb-12">
-            <p><strong className="text-[#003C71]">Day 30:</strong> They&apos;re forming opinions</p>
-            <p><strong className="text-[#003C71]">Day 60:</strong> They&apos;re making decisions</p>
-            <p><strong className="text-[#003C71]">Day 90:</strong> The verdict is set</p>
+          <div className="mb-12 space-y-6 text-xl text-[#333333]">
+            <p>
+              <strong className="text-[#003C71]">Day 30:</strong> They&apos;re
+              forming opinions
+            </p>
+            <p>
+              <strong className="text-[#003C71]">Day 60:</strong> They&apos;re
+              making decisions
+            </p>
+            <p>
+              <strong className="text-[#003C71]">Day 90:</strong> The verdict is
+              set
+            </p>
           </div>
-          <p className="text-lg text-[#666666] mb-8">
-            Your stakeholders form irreversible judgments by Day 90. Every day without systematic intervention reduces your probability of success.
+          <p className="mb-8 text-lg text-[#666666]">
+            Your stakeholders form irreversible judgments by Day 90. Every day
+            without systematic intervention reduces your probability of success.
           </p>
-          <a 
-            href="#evidence" 
-            className="inline-block border-2 border-[#003C71] text-[#003C71] font-medium px-8 py-4 rounded-lg hover:bg-[#003C71] hover:text-white transition-colors"
+          <a
+            href="#evidence"
+            className="inline-block rounded-lg border-2 border-[#003C71] px-8 py-4 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
           >
             Understand Your Timeline
           </a>
@@ -58,30 +76,34 @@ function ScreenTwo() {
   )
 }
 
-// Screen 3: The Proof  
+// Screen 3: The Proof
 function ScreenThree() {
   return (
-    <section id="evidence" className="min-h-screen flex items-center justify-center py-16">
+    <section
+      id="evidence"
+      className="flex min-h-screen items-center justify-center py-16"
+    >
       <Container>
-        <FadeIn className="text-center max-w-4xl mx-auto">
+        <FadeIn className="mx-auto max-w-4xl text-center">
           <blockquote className="mb-8">
-            <p className="text-3xl text-[#333333] mb-6">
-              &ldquo;My eye stopped twitching. The sleep disorders stopped.<br/>
+            <p className="mb-6 text-3xl text-[#333333]">
+              &ldquo;My eye stopped twitching. The sleep disorders stopped.
+              <br />
               But more importantly, I stopped creating my own resistance.&rdquo;
             </p>
-            <cite className="text-[#003C71] font-medium not-italic text-lg">
+            <cite className="text-lg font-medium text-[#003C71] not-italic">
               — Technology Executive, Month 3 of transition
             </cite>
           </blockquote>
 
-          <div className="text-center mb-12">
+          <div className="mb-12 text-center">
             <span className="text-4xl font-bold text-[#004225]">87%</span>
-            <span className="text-lg text-[#333333] ml-2">success metric</span>
+            <span className="ml-2 text-lg text-[#333333]">success metric</span>
           </div>
 
-          <a 
-            href="/work" 
-            className="inline-block border-2 border-[#003C71] text-[#003C71] font-medium px-8 py-4 rounded-lg hover:bg-[#003C71] hover:text-white transition-colors"
+          <a
+            href="/work"
+            className="inline-block rounded-lg border-2 border-[#003C71] px-8 py-4 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
           >
             See More Evidence
           </a>
@@ -94,45 +116,49 @@ function ScreenThree() {
 // Screen 4: The Qualification
 function ScreenFour() {
   return (
-    <section id="qualify" className="min-h-screen flex items-center justify-center py-16">
+    <section
+      id="qualify"
+      className="flex min-h-screen items-center justify-center py-16"
+    >
       <Container>
-        <FadeIn className="text-center max-w-3xl mx-auto">
-          <h2 className="font-display text-4xl font-medium text-[#003C71] mb-8">
+        <FadeIn className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-8 font-display text-4xl font-medium text-[#003C71]">
             This is for you if:
           </h2>
-          <div className="space-y-4 text-lg text-[#333333] mb-8 max-w-2xl mx-auto text-left">
+          <div className="mx-auto mb-8 max-w-2xl space-y-4 text-left text-lg text-[#333333]">
             <div className="flex items-start">
-              <span className="mr-4 text-[#003C71] text-xl">✓</span>
+              <span className="mr-4 text-xl text-[#003C71]">✓</span>
               <span>€50M+ P&L responsibility</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-[#003C71] text-xl">✓</span>
+              <span className="mr-4 text-xl text-[#003C71]">✓</span>
               <span>100+ team members</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-[#003C71] text-xl">✓</span>
+              <span className="mr-4 text-xl text-[#003C71]">✓</span>
               <span>Board/ExCo exposure</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-[#003C71] text-xl">✓</span>
+              <span className="mr-4 text-xl text-[#003C71]">✓</span>
               <span>First 18 months or major expansion</span>
             </div>
           </div>
-          
-          <p className="text-lg text-[#666666] mb-8">
-            Not everyone qualifies. The stakes must justify systematic intervention.
+
+          <p className="mb-8 text-lg text-[#666666]">
+            Not everyone qualifies. The stakes must justify systematic
+            intervention.
           </p>
-          
-          <div className="flex gap-4 justify-center">
-            <a 
+
+          <div className="flex justify-center gap-4">
+            <a
               href="/resources"
-              className="inline-block border-2 border-[#003C71] text-[#003C71] font-medium px-6 py-3 rounded-lg hover:bg-[#003C71] hover:text-white transition-colors"
+              className="inline-block rounded-lg border-2 border-[#003C71] px-6 py-3 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
             >
               Not sure? Get Diagnostic Resources
             </a>
-            <a 
-              href="#begin" 
-              className="inline-block bg-[#003C71] text-white font-medium px-6 py-3 rounded-lg hover:bg-[#002A52] transition-colors"
+            <a
+              href="#begin"
+              className="inline-block rounded-lg bg-[#003C71] px-6 py-3 font-medium text-white transition-colors hover:bg-[#002A52]"
             >
               Ready? Check Your Eligibility
             </a>
@@ -146,26 +172,35 @@ function ScreenFour() {
 // Screen 5: The Close
 function ScreenFive() {
   return (
-    <section id="begin" className="min-h-screen flex items-center justify-center py-16">
+    <section
+      id="begin"
+      className="flex min-h-screen items-center justify-center py-16"
+    >
       <Container>
-        <FadeIn className="text-center max-w-3xl mx-auto">
-          <h2 className="font-display text-5xl font-medium text-[#003C71] mb-8">
+        <FadeIn className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-8 font-display text-5xl font-medium text-[#003C71]">
             Your stakeholders are forming permanent judgments
           </h2>
-          
-          <p className="text-xl text-[#333333] mb-12">
-            Every day without systematic intervention reduces your probability of success. Architecture ensures the narrative serves your objectives.
+
+          <p className="mb-12 text-xl text-[#333333]">
+            Every day without systematic intervention reduces your probability
+            of success. Architecture ensures the narrative serves your
+            objectives.
           </p>
-          
+
           <div className="mb-12">
-            <p className="text-2xl text-[#003C71] mb-2">Francisco Baptista</p>
-            <p className="text-lg text-[#333333] mb-1">Executive Transition Advisor</p>
-            <p className="text-lg text-[#333333]">200+ Senior Leaders | 87% Success Rate</p>
+            <p className="mb-2 text-2xl text-[#003C71]">Francisco Baptista</p>
+            <p className="mb-1 text-lg text-[#333333]">
+              Executive Transition Advisor
+            </p>
+            <p className="text-lg text-[#333333]">
+              200+ Senior Leaders | 87% Success Rate
+            </p>
           </div>
-          
-          <a 
-            href="/assessment" 
-            className="inline-block bg-[#003C71] text-white font-medium px-12 py-4 rounded-lg text-xl hover:bg-[#002A52] transition-colors"
+
+          <a
+            href="/assessment"
+            className="inline-block rounded-lg bg-[#003C71] px-12 py-4 text-xl font-medium text-white transition-colors hover:bg-[#002A52]"
           >
             Request Strategic Assessment
           </a>
@@ -175,32 +210,96 @@ function ScreenFive() {
   )
 }
 
-export const metadata: Metadata = {
-  description:
-    'Executive Transition Advisor Francisco Baptista. Former Nestlé & SAP executive. 200+ senior leaders across 15+ countries. Systematic architecture for Managing Directors, Technical Leaders, and Senior Executives navigating complex transitions.',
-  title:
-    'Francisco Baptista - Executive Transition Advisor | Systematic Success Architecture',
-}
+export const metadata: Metadata = generatePageMetadata(PAGE_METADATA.home)
 
 export default function Home() {
-  return (
-    <RootLayout>
-      {/* Unified Background Pattern */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <AbstractFaces
-          className="pointer-events-none absolute -top-64 -left-32 w-[200rem] opacity-[0.015]"
-          orangeColor="rgb(254,80,0)"
-          blueColor="rgb(0,114,206)"
-          navyColor="rgb(0,60,113)"
-        />
-      </div>
+  // Select top FAQs for landing page
+  const selectedFAQs = [
+    EXECUTIVE_FAQ[0].questions[0], // Why do 40% fail?
+    EXECUTIVE_FAQ[0].questions[1], // What makes executive transitions different?
+    EXECUTIVE_FAQ[1].questions[0], // What is Executive Transition Architecture?
+    EXECUTIVE_FAQ[2].questions[0], // Who qualifies?
+    EXECUTIVE_FAQ[2].questions[2], // What investment is required?
+    EXECUTIVE_FAQ[3].questions[0], // What happens in Strategic Assessment?
+  ]
 
-      <ScreenOne />
-      <ScreenTwo />
-      <ScreenThree />
-      <ScreenFour />
-      <ScreenFive />
-      
-    </RootLayout>
+  const serviceSchema = generateServiceSchema(
+    'Executive Transition Architecture',
+    'Systematic methodology preventing the 40% failure rate in executive transitions',
+    [
+      'Transition Risk Analysis',
+      'Stakeholder Mapping',
+      'Integration Engineering',
+      '90-Day Action Plan',
+      'Weekly Strategic Advisory',
+    ],
+    '€€€€',
+  )
+
+  const articleSchema = generateArticleSchema(
+    'Executive Transitions Have a 40% Failure Rate - The Patterns Are Predictable',
+    'Systematic methodology for preventing executive transition failure. From 40% industry failure rate to 87% success rate through Executive Transition Architecture.',
+    new Date().toISOString(),
+  )
+
+  return (
+    <>
+      <Script
+        id="landing-service-schema"
+        type="application/ld+json"
+        /* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML for SEO */
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+        strategy="afterInteractive"
+      />
+      <Script
+        id="landing-article-schema"
+        type="application/ld+json"
+        /* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML for SEO */
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+        strategy="afterInteractive"
+      />
+
+      <RootLayout>
+        {/* Semantic HTML5 Structure */}
+        <main itemScope itemType="https://schema.org/WebPage">
+          <meta
+            itemProp="name"
+            content="Francisco Baptista - Executive Transition Architect"
+          />
+          <meta
+            itemProp="description"
+            content="Executive transitions have a 40% failure rate. Systematic methodology achieving 87% success rate."
+          />
+
+          {/* Unified Background Pattern */}
+          <div className="fixed inset-0 -z-10 overflow-hidden">
+            <AbstractFaces
+              className="pointer-events-none absolute -top-64 -left-32 w-[200rem] opacity-[0.015]"
+              orangeColor="rgb(254,80,0)"
+              blueColor="rgb(0,114,206)"
+              navyColor="rgb(0,60,113)"
+            />
+          </div>
+
+          <ScreenOne />
+          <ScreenTwo />
+          <ScreenThree />
+          <ScreenFour />
+          <ScreenFive />
+
+          {/* FAQ Section */}
+          <FAQSection
+            title="Executive Transition Questions"
+            subtitle="Critical insights for Managing Directors and C-Suite executives"
+            faqs={selectedFAQs}
+            className="bg-white"
+          />
+        </main>
+      </RootLayout>
+    </>
   )
 }

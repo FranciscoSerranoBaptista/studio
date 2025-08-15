@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import { Border } from '@/components/Border'
 import { Container } from '@/components/Container'
@@ -7,6 +8,9 @@ import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
 import { SectionIntro } from '@/components/SectionIntro'
+import Breadcrumb, { generateBreadcrumbs } from '@/components/Breadcrumb'
+import { generatePageMetadata, PAGE_METADATA } from '@/lib/metadata-config'
+import { generateCaseStudySchema, generateReviewSchema } from '@/lib/structured-data'
 
 const executiveCases = [
   {
@@ -488,16 +492,70 @@ function EngagementCriteria() {
   )
 }
 
-export const metadata: Metadata = {
-  title:
-    'Executive Integration: Documented Transformation | Francisco Baptista',
-  description:
-    '200+ senior executives across 15+ countries. Real challenges, documented breakthroughs through systematic Executive Integration Advisory. Evidence-based transformation for complex leadership contexts.',
-}
+export const metadata: Metadata = generatePageMetadata(PAGE_METADATA.work)
 
 export default function Work() {
+  const breadcrumbs = generateBreadcrumbs('/work')
+  
+  // Generate structured data for case studies
+  const caseStudySchemas = executiveCases.map(case_ => generateCaseStudySchema({
+    name: case_.client,
+    description: case_.challenge,
+    industry: case_.sector,
+    challenge: case_.presentingChallenge,
+    solution: case_.integrationApproach,
+    result: case_.measuredOutcomes ? case_.measuredOutcomes.join('; ') : case_.impact,
+    datePublished: new Date().toISOString(),
+  }))
+
+  // Generate review schema from testimonials
+  const reviewSchema = generateReviewSchema([
+    {
+      author: 'German Investment Banking Executive',
+      role: 'Managing Director',
+      rating: 5,
+      reviewBody: 'The positive is it\'s very efficient. You don\'t waste time. It will 100% generate business.',
+      datePublished: new Date().toISOString(),
+    },
+    {
+      author: 'Swiss Technology Executive',
+      role: 'Director',
+      rating: 5,
+      reviewBody: 'If gratitude would have surfaced a bit, I could have come across as let\'s continue talking.',
+      datePublished: new Date().toISOString(),
+    },
+  ])
+
   return (
-    <RootLayout>
+    <>
+      {caseStudySchemas.map((schema, index) => (
+        <Script
+          key={`case-study-${index}`}
+          id={`case-study-schema-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+          strategy="afterInteractive"
+        />
+      ))}
+      <Script
+        id="work-review-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewSchema),
+        }}
+        strategy="afterInteractive"
+      />
+      
+      <RootLayout>
+        <main itemScope itemType="https://schema.org/CollectionPage">
+          <meta itemProp="name" content="Executive Transition Case Studies" />
+          <meta itemProp="description" content="Documented executive transitions with real metrics and outcomes" />
+          
+          {/* Breadcrumb */}
+          <div className="px-6 pt-6 lg:px-8">
+            <Breadcrumb items={breadcrumbs} />
       <PageIntro
         eyebrow="The Evidence Base"
         title="200+ senior executives. 15+ countries. Measurable transformation."
@@ -557,6 +615,9 @@ export default function Work() {
           </div>
         </FadeIn>
       </Container>
-    </RootLayout>
+          </div>
+        </main>
+      </RootLayout>
+    </>
   )
 }

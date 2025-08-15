@@ -216,7 +216,9 @@ export function StrategicAssessmentForm() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-labelledby="success-checkmark-title"
             >
+              <title id="success-checkmark-title">Success checkmark</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -293,7 +295,7 @@ export function StrategicAssessmentForm() {
           <div className="mb-4 flex items-center justify-between">
             {sections.map((section, index) => (
               <div
-                key={index}
+                key={section.title}
                 className={`flex items-center ${index < sections.length - 1 ? 'flex-1' : ''}`}
               >
                 <div
@@ -338,10 +340,11 @@ export function StrategicAssessmentForm() {
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-neutral-700">
                   Name *
                 </label>
                 <input
+                  id="name"
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
@@ -351,10 +354,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="title" className="mb-2 block text-sm font-medium text-neutral-700">
                   Title *
                 </label>
                 <input
+                  id="title"
                   type="text"
                   value={formData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
@@ -365,10 +369,11 @@ export function StrategicAssessmentForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor="organization" className="mb-2 block text-sm font-medium text-neutral-700">
                 Organization *
               </label>
               <input
+                id="organization"
                 type="text"
                 value={formData.organization}
                 onChange={(e) =>
@@ -381,10 +386,11 @@ export function StrategicAssessmentForm() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-neutral-700">
                   Email *
                 </label>
                 <input
+                  id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
@@ -394,10 +400,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-neutral-700">
                   Phone
                 </label>
                 <input
+                  id="phone"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
@@ -407,10 +414,11 @@ export function StrategicAssessmentForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor="linkedin" className="mb-2 block text-sm font-medium text-neutral-700">
                 LinkedIn Profile
               </label>
               <input
+                id="linkedin"
                 type="url"
                 value={formData.linkedinProfile}
                 onChange={(e) =>
@@ -425,10 +433,10 @@ export function StrategicAssessmentForm() {
 
         {currentSection === 1 && (
           <div className="space-y-6">
-            <div>
-              <label className="mb-4 block text-sm font-medium text-neutral-700">
+            <fieldset>
+              <legend className="mb-4 block text-sm font-medium text-neutral-700">
                 Current Transition Context (Select all that apply) *
-              </label>
+              </legend>
               <div className="space-y-3">
                 {transitionContextOptions.map((option) => (
                   <label key={option.value} className="flex items-center">
@@ -450,14 +458,15 @@ export function StrategicAssessmentForm() {
                   </label>
                 ))}
               </div>
-            </div>
+            </fieldset>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="plResponsibility" className="mb-2 block text-sm font-medium text-neutral-700">
                   P&L Responsibility (€/CHF)
                 </label>
                 <input
+                  id="plResponsibility"
                   type="text"
                   value={formData.plResponsibility}
                   onChange={(e) =>
@@ -469,10 +478,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="geographicScope" className="mb-2 block text-sm font-medium text-neutral-700">
                   Geographic Scope
                 </label>
                 <input
+                  id="geographicScope"
                   type="text"
                   value={formData.geographicScope}
                   onChange={(e) =>
@@ -486,10 +496,11 @@ export function StrategicAssessmentForm() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="teamSizeDirect" className="mb-2 block text-sm font-medium text-neutral-700">
                   Team Size (Direct Reports)
                 </label>
                 <input
+                  id="teamSizeDirect"
                   type="number"
                   value={formData.teamSizeDirect}
                   onChange={(e) =>
@@ -500,10 +511,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="teamSizeTotal" className="mb-2 block text-sm font-medium text-neutral-700">
                   Total Team Size (Including Indirect)
                 </label>
                 <input
+                  id="teamSizeTotal"
                   type="number"
                   value={formData.teamSizeTotal}
                   onChange={(e) =>
@@ -516,10 +528,11 @@ export function StrategicAssessmentForm() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="matrixComplexity" className="mb-2 block text-sm font-medium text-neutral-700">
                   Matrix Complexity
                 </label>
                 <select
+                  id="matrixComplexity"
                   value={formData.matrixComplexity}
                   onChange={(e) =>
                     handleInputChange('matrixComplexity', e.target.value)
@@ -536,10 +549,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor="urgencyTimeline" className="mb-2 block text-sm font-medium text-neutral-700">
                   Urgency Timeline *
                 </label>
                 <select
+                  id="urgencyTimeline"
                   value={formData.urgencyTimeline}
                   onChange={(e) =>
                     handleInputChange('urgencyTimeline', e.target.value)
@@ -562,7 +576,7 @@ export function StrategicAssessmentForm() {
         {currentSection === 2 && (
           <div className="space-y-6">
             <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor="stakesQuestion" className="mb-2 block text-sm font-medium text-neutral-700">
                 What&apos;s at stake if this transition doesn&apos;t succeed? *
               </label>
               <p className="mb-3 text-xs text-neutral-500">
@@ -570,6 +584,7 @@ export function StrategicAssessmentForm() {
                 true cost of failure.
               </p>
               <textarea
+                id="stakesQuestion"
                 value={formData.stakesQuestion}
                 onChange={(e) =>
                   handleInputChange('stakesQuestion', e.target.value)
@@ -582,7 +597,7 @@ export function StrategicAssessmentForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor="valuableAssessment" className="mb-2 block text-sm font-medium text-neutral-700">
                 What would need to be true for you to consider this assessment
                 the most valuable 45 minutes of your quarter? *
               </label>
@@ -591,6 +606,7 @@ export function StrategicAssessmentForm() {
                 value.
               </p>
               <textarea
+                id="valuableAssessment"
                 value={formData.valuableAssessment}
                 onChange={(e) =>
                   handleInputChange('valuableAssessment', e.target.value)

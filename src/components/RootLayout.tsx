@@ -19,6 +19,7 @@ import { Footer } from '@/components/Footer'
 import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import PerformanceMonitor from '@/components/PerformanceMonitor'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -277,6 +278,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
+      <PerformanceMonitor />
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )

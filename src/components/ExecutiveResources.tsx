@@ -92,8 +92,9 @@ export function ExecutiveResources() {
               key={resource.id}
               className="rounded-2xl border border-neutral-200 p-6 transition-colors hover:border-brand-blue"
             >
-              <div 
-                className="cursor-pointer"
+              <button
+                type="button"
+                className="cursor-pointer w-full text-left"
                 onClick={() =>
                   setSelectedResource(
                     selectedResource === resource.id ? null : resource.id,
@@ -121,7 +122,9 @@ export function ExecutiveResources() {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-labelledby="expand-icon-title"
                     >
+                      <title id="expand-icon-title">Expand/Collapse</title>
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -135,7 +138,7 @@ export function ExecutiveResources() {
                 <p className="mb-4 text-sm text-neutral-600">
                   {resource.description}
                 </p>
-              </div>
+              </button>
 
               {selectedResource === resource.id && (
                 <div className="mt-4 border-t border-neutral-200 pt-4">
@@ -147,7 +150,9 @@ export function ExecutiveResources() {
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
+                          aria-labelledby="checkmark-icon-title"
                         >
+                          <title id="checkmark-icon-title">Success checkmark</title>
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -177,7 +182,7 @@ export function ExecutiveResources() {
                         >
                           Request Download
                         </Button>
-                        <button className="text-sm text-brand-navy underline hover:text-brand-navy-800">
+                        <button type="button" className="text-sm text-brand-navy underline hover:text-brand-navy-800">
                           Preview Sample
                         </button>
                       </div>
@@ -201,7 +206,7 @@ export function ExecutiveResources() {
             <Button href="/assessment" className="text-sm">
               Schedule Strategic Assessment
             </Button>
-            <button className="text-sm text-brand-navy underline hover:text-brand-navy-800">
+            <button type="button" className="text-sm text-brand-navy underline hover:text-brand-navy-800">
               Request Resource Access
             </button>
           </div>

@@ -75,14 +75,16 @@ function ResourceCard({
   onDiagnosticClick,
   onResourceClick,
   onDocumentClick,
+  immediate = false,
 }: {
   resource: (typeof resources)[0]
   onDiagnosticClick?: () => void
   onResourceClick?: () => void
   onDocumentClick?: () => void
+  immediate?: boolean
 }) {
   return (
-    <FadeIn>
+    <FadeIn immediate={immediate}>
       <article className="flex flex-col h-full rounded-3xl p-8 ring-1 ring-[#003C71]/10 transition hover:bg-[#F5F5F5]">
         <div className="flex flex-1 flex-col">
           <h3 className="mb-2 text-xl font-semibold text-[#003C71]">
@@ -158,7 +160,7 @@ export function ResourcesClient() {
     <>
       <div className="space-y-16">
         {/* First two resources centered */}
-        <FadeInStagger className="mx-auto grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-2">
           {resources.slice(0, 2).map((resource) => (
             <ResourceCard
               key={resource.title}
@@ -166,9 +168,10 @@ export function ResourcesClient() {
               onDiagnosticClick={() => setIsDiagnosticModalOpen(true)}
               onResourceClick={() => setSelectedResource(resource)}
               onDocumentClick={() => setSelectedDocument(resource)}
+              immediate={true}
             />
           ))}
-        </FadeInStagger>
+        </div>
 
         {/* Three case studies in grid */}
         <FadeInStagger className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3">

@@ -24,13 +24,13 @@ const navigation = [
 function Navigation() {
   return (
     <nav>
-      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section) => (
           <li key={section.title}>
             <div className="font-display text-sm font-semibold tracking-wider text-[#003C71]">
               {section.title}
             </div>
-            <ul role="list" className="mt-4 text-sm text-[#333333]">
+            <ul className="mt-4 text-sm text-[#333333]">
               {section.links.map((link) => (
                 <li key={link.href} className="mt-4">
                   <Link
@@ -72,7 +72,8 @@ function AssessmentCallToAction() {
         Executive Transition Advisor
       </p>
       <p className="mt-4 text-sm text-[#333333]">
-        200+ executives. 87% success rate. Systematic intervention for high-stakes transitions.
+        200+ executives. 87% success rate. Systematic intervention for
+        high-stakes transitions.
       </p>
       <div className="mt-6">
         <Link
@@ -102,7 +103,8 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-[#666666]">
-            © {new Date().getFullYear()} Francisco Baptista | Executive Transition Advisor
+            © {new Date().getFullYear()} Francisco Baptista | Executive
+            Transition Advisor
           </p>
         </div>
       </FadeIn>
