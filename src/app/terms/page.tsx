@@ -37,9 +37,9 @@ export default function Terms() {
 
             <h2>1. Nature of Advisory Engagement</h2>
             <p>
-              Francisco Baptista ("Advisor") provides strategic executive
+              Francisco Baptista (&ldquo;Advisor&rdquo;) provides strategic executive
               transition advisory services to qualified senior executives and
-              their organizations ("Client"). These services constitute
+              their organizations (&ldquo;Client&rdquo;). These services constitute
               confidential strategic consultation based on proprietary
               methodologies developed through analysis of 200+ executive
               transitions.
@@ -109,11 +109,11 @@ export default function Terms() {
 
             <h3>3.2 Independence</h3>
             <p>
-              The Advisor maintains complete independence from the Client's
+              The Advisor maintains complete independence from the Client&apos;s
               organization. This advisory relationship exists outside
               organizational boundaries, enabling candid strategic dialogue
               essential for navigating complex political dynamics. The Advisor
-              has no obligation to report to the Client's organization unless
+              has no obligation to report to the Client&apos;s organization unless
               explicitly agreed in writing.
             </p>
 
@@ -160,7 +160,7 @@ export default function Terms() {
 
             <h3>5.2 No Guarantee of Outcomes</h3>
             <p>
-              While the Advisor's methodology demonstrates an 87% success rate
+              While the Advisor&apos;s methodology demonstrates an 87% success rate
               across 200+ engagements, executive success depends on numerous
               factors including Client execution, organizational dynamics, and
               market conditions. The Advisor provides strategic counsel and
@@ -194,7 +194,7 @@ export default function Terms() {
 
             <h2>7. Limitation of Liability</h2>
             <p>
-              Given the advisory nature of services and the Client's ultimate
+              Given the advisory nature of services and the Client&apos;s ultimate
               responsibility for decisions and execution, the Advisor's
               aggregate liability is limited to fees paid for services rendered.
               The Advisor is not liable for:
@@ -253,7 +253,7 @@ export default function Terms() {
 
             <h2>10. Governing Law and Jurisdiction</h2>
             <p>
-              This agreement is governed by Swiss law, reflecting the Advisor's
+              This agreement is governed by Swiss law, reflecting the Advisor&apos;s
               base of operations and commitment to Swiss standards of
               confidentiality and professional excellence. For EU-based Clients,
               applicable EU regulations regarding professional services and data

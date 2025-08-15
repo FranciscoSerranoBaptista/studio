@@ -168,7 +168,7 @@ export default function FAQSection({
         {filteredFAQs.length === 0 && (
           <div className="mt-10 text-center">
             <p className="text-gray-600">
-              No questions found matching "{searchTerm}". Try a different search term.
+              No questions found matching &ldquo;{searchTerm}&rdquo;. Try a different search term.
             </p>
           </div>
         )}

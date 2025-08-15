@@ -195,7 +195,7 @@ export default function CaseStudyCard({
           itemType="https://schema.org/Review"
         >
           <p className="text-sm italic text-gray-600" itemProp="reviewBody">
-            "{caseStudy.testimonial.quote}"
+            &ldquo;{caseStudy.testimonial.quote}&rdquo;
           </p>
           <footer
             className="mt-2"

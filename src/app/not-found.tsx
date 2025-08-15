@@ -18,7 +18,7 @@ export default function NotFound() {
 
           <p className="mt-4 text-lg leading-relaxed text-neutral-600">
           In executive transitions, venturing into unknown territory without a
-          map leads to predictable outcomes. This page, however, simply doesn't
+          map leads to predictable outcomes. This page, however, simply doesn&apos;t
           exist.
         </p>
 
@@ -40,14 +40,14 @@ export default function NotFound() {
 
         <div className="mt-12 border-t border-neutral-200 pt-8">
           <p className="text-sm text-neutral-600">
-            Lost in transition? That's precisely the pattern we prevent.
+            Lost in transition? That&apos;s precisely the pattern we prevent.
           </p>
           <p className="mt-2 text-sm text-neutral-500">
             <Link
               href="/contact"
               className="font-semibold text-neutral-700 transition hover:text-neutral-950"
             >
-              Let's discuss
+              Let&apos;s discuss
             </Link>{' '}
             your executive navigation needs.
           </p>
