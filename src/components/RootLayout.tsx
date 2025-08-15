@@ -10,7 +10,6 @@ import {
   useEffect,
   useId,
   useRef,
-  useState,
 } from 'react'
 
 import { Button } from '@/components/Button'
@@ -21,10 +20,7 @@ import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 
-const RootLayoutContext = createContext<{
-  logoHovered: boolean
-  setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
-} | null>(null)
+const RootLayoutContext = createContext<{} | null>(null)
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -62,7 +58,6 @@ function Header({
   if (!context) {
     throw new Error('Header must be used within RootLayout')
   }
-  const { logoHovered, setLogoHovered } = context
 
   return (
     <Container>
@@ -70,10 +65,8 @@ function Header({
         <Link
           href="/"
           aria-label="Home"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logo className="h-8" invert={invert} filled={logoHovered} />
+          <Logo className="h-8" invert={invert} />
         </Link>
         <div className="flex items-center gap-x-8">
           <Button href="/assessment" invert={invert}>
@@ -274,10 +267,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [logoHovered, setLogoHovered] = useState(false)
-
   return (
-    <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
+    <RootLayoutContext.Provider value={{}}>
       <PerformanceMonitor />
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
