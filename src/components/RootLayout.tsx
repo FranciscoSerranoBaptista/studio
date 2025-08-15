@@ -21,9 +21,7 @@ import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 
-interface RootLayoutContextType {
-  // Context is currently empty but maintained for future extensions
-}
+type RootLayoutContextType = Record<string, never>
 
 const RootLayoutContext = createContext<RootLayoutContextType | null>(null)
 
