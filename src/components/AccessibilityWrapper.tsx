@@ -64,10 +64,9 @@ export default function AccessibilityWrapper({
 export function NavigationWrapper({
   children,
   ...props
-}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
+}: Omit<AccessibilityWrapperProps, 'semanticTag'>) {
   return (
     <AccessibilityWrapper
-      role="navigation"
       semanticTag="nav"
       schemaType="SiteNavigationElement"
       aiHints={{
@@ -85,10 +84,9 @@ export function NavigationWrapper({
 export function MainContentWrapper({
   children,
   ...props
-}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'>) {
+}: Omit<AccessibilityWrapperProps, 'semanticTag'>) {
   return (
     <AccessibilityWrapper
-      role="main"
       semanticTag="main"
       label="Main content"
       aiHints={{
@@ -109,14 +107,13 @@ export function ArticleWrapper({
   datePublished,
   children,
   ...props
-}: Omit<AccessibilityWrapperProps, 'role' | 'semanticTag'> & {
+}: Omit<AccessibilityWrapperProps, 'semanticTag'> & {
   title: string
   author?: string
   datePublished?: string
 }) {
   return (
     <AccessibilityWrapper
-      role="article"
       semanticTag="article"
       schemaType="Article"
       label={title}
