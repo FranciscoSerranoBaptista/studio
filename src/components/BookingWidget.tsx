@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useId } from 'react'
 import { FadeIn } from '@/components/FadeIn'
 
 declare global {
@@ -19,6 +19,7 @@ declare global {
 export function BookingWidget() {
   const [mounted, setMounted] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const calendlyContainerId = useId()
 
   useEffect(() => {
     setMounted(true)
@@ -43,7 +44,7 @@ export function BookingWidget() {
     }
 
     const initializeCalendly = () => {
-      const parentElement = document.getElementById('calendly-container')
+      const parentElement = document.getElementById(calendlyContainerId)
       if (parentElement && window.Calendly) {
         // Clear any existing content
         parentElement.innerHTML = ''
@@ -60,7 +61,7 @@ export function BookingWidget() {
     }
 
     loadCalendlyScript()
-  }, [])
+  }, [calendlyContainerId])
 
   // Don't render on server side to avoid hydration mismatch
   if (!mounted) {
@@ -88,7 +89,7 @@ export function BookingWidget() {
           </div>
         )}
         <div 
-          id="calendly-container"
+          id={calendlyContainerId}
           style={{
             minWidth: '320px',
             minHeight: '580px'

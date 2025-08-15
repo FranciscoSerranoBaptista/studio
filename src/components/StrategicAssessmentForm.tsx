@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useId } from 'react'
 import { FadeIn } from '@/components/FadeIn'
 
 interface AssessmentFormData {
@@ -49,6 +49,24 @@ const matrixOptions = [
 ]
 
 export function StrategicAssessmentForm() {
+  const successCheckmarkId = useId()
+  
+  // Form field IDs
+  const nameId = useId()
+  const titleId = useId()
+  const organizationId = useId()
+  const emailId = useId()
+  const phoneId = useId()
+  const linkedinId = useId()
+  const plResponsibilityId = useId()
+  const geographicScopeId = useId()
+  const teamSizeDirectId = useId()
+  const teamSizeTotalId = useId()
+  const matrixComplexityId = useId()
+  const urgencyTimelineId = useId()
+  const stakesQuestionId = useId()
+  const valuableAssessmentId = useId()
+  
   const [formData, setFormData] = useState<AssessmentFormData>({
     name: '',
     title: '',
@@ -216,9 +234,9 @@ export function StrategicAssessmentForm() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              aria-labelledby="success-checkmark-title"
+              aria-labelledby={successCheckmarkId}
             >
-              <title id="success-checkmark-title">Success checkmark</title>
+              <title id={successCheckmarkId}>Success checkmark</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -344,7 +362,7 @@ export function StrategicAssessmentForm() {
                   Name *
                 </label>
                 <input
-                  id="name"
+                  id={nameId}
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
@@ -358,7 +376,7 @@ export function StrategicAssessmentForm() {
                   Title *
                 </label>
                 <input
-                  id="title"
+                  id={titleId}
                   type="text"
                   value={formData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
@@ -373,7 +391,7 @@ export function StrategicAssessmentForm() {
                 Organization *
               </label>
               <input
-                id="organization"
+                id={organizationId}
                 type="text"
                 value={formData.organization}
                 onChange={(e) =>
@@ -390,7 +408,7 @@ export function StrategicAssessmentForm() {
                   Email *
                 </label>
                 <input
-                  id="email"
+                  id={emailId}
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
@@ -404,7 +422,7 @@ export function StrategicAssessmentForm() {
                   Phone
                 </label>
                 <input
-                  id="phone"
+                  id={phoneId}
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
@@ -418,7 +436,7 @@ export function StrategicAssessmentForm() {
                 LinkedIn Profile
               </label>
               <input
-                id="linkedin"
+                id={linkedinId}
                 type="url"
                 value={formData.linkedinProfile}
                 onChange={(e) =>
@@ -466,7 +484,7 @@ export function StrategicAssessmentForm() {
                   P&L Responsibility (€/CHF)
                 </label>
                 <input
-                  id="plResponsibility"
+                  id={plResponsibilityId}
                   type="text"
                   value={formData.plResponsibility}
                   onChange={(e) =>
@@ -482,7 +500,7 @@ export function StrategicAssessmentForm() {
                   Geographic Scope
                 </label>
                 <input
-                  id="geographicScope"
+                  id={geographicScopeId}
                   type="text"
                   value={formData.geographicScope}
                   onChange={(e) =>
@@ -496,11 +514,11 @@ export function StrategicAssessmentForm() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label htmlFor="teamSizeDirect" className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor={teamSizeDirectId} className="mb-2 block text-sm font-medium text-neutral-700">
                   Team Size (Direct Reports)
                 </label>
                 <input
-                  id="teamSizeDirect"
+                  id={teamSizeDirectId}
                   type="number"
                   value={formData.teamSizeDirect}
                   onChange={(e) =>
@@ -511,11 +529,11 @@ export function StrategicAssessmentForm() {
               </div>
 
               <div>
-                <label htmlFor="teamSizeTotal" className="mb-2 block text-sm font-medium text-neutral-700">
+                <label htmlFor={teamSizeTotalId} className="mb-2 block text-sm font-medium text-neutral-700">
                   Total Team Size (Including Indirect)
                 </label>
                 <input
-                  id="teamSizeTotal"
+                  id={teamSizeTotalId}
                   type="number"
                   value={formData.teamSizeTotal}
                   onChange={(e) =>
@@ -532,7 +550,7 @@ export function StrategicAssessmentForm() {
                   Matrix Complexity
                 </label>
                 <select
-                  id="matrixComplexity"
+                  id={matrixComplexityId}
                   value={formData.matrixComplexity}
                   onChange={(e) =>
                     handleInputChange('matrixComplexity', e.target.value)
@@ -553,7 +571,7 @@ export function StrategicAssessmentForm() {
                   Urgency Timeline *
                 </label>
                 <select
-                  id="urgencyTimeline"
+                  id={urgencyTimelineId}
                   value={formData.urgencyTimeline}
                   onChange={(e) =>
                     handleInputChange('urgencyTimeline', e.target.value)
@@ -576,7 +594,7 @@ export function StrategicAssessmentForm() {
         {currentSection === 2 && (
           <div className="space-y-6">
             <div>
-              <label htmlFor="stakesQuestion" className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor={stakesQuestionId} className="mb-2 block text-sm font-medium text-neutral-700">
                 What&apos;s at stake if this transition doesn&apos;t succeed? *
               </label>
               <p className="mb-3 text-xs text-neutral-500">
@@ -584,7 +602,7 @@ export function StrategicAssessmentForm() {
                 true cost of failure.
               </p>
               <textarea
-                id="stakesQuestion"
+                id={stakesQuestionId}
                 value={formData.stakesQuestion}
                 onChange={(e) =>
                   handleInputChange('stakesQuestion', e.target.value)
@@ -597,7 +615,7 @@ export function StrategicAssessmentForm() {
             </div>
 
             <div>
-              <label htmlFor="valuableAssessment" className="mb-2 block text-sm font-medium text-neutral-700">
+              <label htmlFor={valuableAssessmentId} className="mb-2 block text-sm font-medium text-neutral-700">
                 What would need to be true for you to consider this assessment
                 the most valuable 45 minutes of your quarter? *
               </label>
@@ -606,7 +624,7 @@ export function StrategicAssessmentForm() {
                 value.
               </p>
               <textarea
-                id="valuableAssessment"
+                id={valuableAssessmentId}
                 value={formData.valuableAssessment}
                 onChange={(e) =>
                   handleInputChange('valuableAssessment', e.target.value)

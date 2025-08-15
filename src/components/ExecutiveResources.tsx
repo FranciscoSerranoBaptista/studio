@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useId } from 'react'
 import { Button } from '@/components/Button'
 import { FadeIn } from '@/components/FadeIn'
 
@@ -64,6 +64,8 @@ const resources: ResourceDownload[] = [
 export function ExecutiveResources() {
   const [selectedResource, setSelectedResource] = useState<string | null>(null)
   const [downloadRequested, setDownloadRequested] = useState<string[]>([])
+  const expandIconId = useId()
+  const checkmarkIconId = useId()
 
   const handleDownloadRequest = (resourceId: string) => {
     // In a real implementation, this would capture lead information
@@ -122,9 +124,9 @@ export function ExecutiveResources() {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
-                      aria-labelledby="expand-icon-title"
+                      aria-labelledby={expandIconId}
                     >
-                      <title id="expand-icon-title">Expand/Collapse</title>
+                      <title id={expandIconId}>Expand/Collapse</title>
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -150,9 +152,9 @@ export function ExecutiveResources() {
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
-                          aria-labelledby="checkmark-icon-title"
+                          aria-labelledby={checkmarkIconId}
                         >
-                          <title id="checkmark-icon-title">Success checkmark</title>
+                          <title id={checkmarkIconId}>Success checkmark</title>
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"

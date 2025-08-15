@@ -1,16 +1,14 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { useId } from 'react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 
-export const metadata: Metadata = {
-  title: 'Executive Transition Assessment Confirmed - Francisco Baptista',
-  description:
-    'Your Executive Transition Assessment is confirmed. Preparation guidance and next steps for C-Suite and Managing Director advisory.',
-}
-
 export default function BookingConfirmed() {
+  const successIconId = useId()
+  const confidentialityIconId = useId()
   return (
     <RootLayout>
       <Container className="mt-24 sm:mt-32 lg:mt-40">
@@ -24,9 +22,11 @@ export default function BookingConfirmed() {
                 viewBox="0 0 24 24"
                 strokeWidth="2.5"
                 stroke="currentColor"
-                aria-labelledby="success-icon-title"
+                aria-labelledby={successIconId}
               >
-                <title id="success-icon-title">Booking confirmed checkmark</title>
+                <title id={successIconId}>
+                  Booking confirmed checkmark
+                </title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -188,9 +188,11 @@ export default function BookingConfirmed() {
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                     stroke="currentColor"
-                    aria-labelledby="confidentiality-icon-title"
+                    aria-labelledby={confidentialityIconId}
                   >
-                    <title id="confidentiality-icon-title">Confidentiality lock icon</title>
+                    <title id={confidentialityIconId}>
+                      Confidentiality lock icon
+                    </title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -308,15 +310,9 @@ export default function BookingConfirmed() {
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="/methodology">
-                Our Methodology
-              </Button>
-              <Button href="/process">
-                Advisory Process
-              </Button>
-              <Button href="/faq">
-                Common Questions
-              </Button>
+              <Button href="/methodology">Our Methodology</Button>
+              <Button href="/process">Advisory Process</Button>
+              <Button href="/faq">Common Questions</Button>
             </div>
 
             <div className="mt-12">

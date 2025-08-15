@@ -1,4 +1,6 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { useId } from 'react'
 import Script from 'next/script'
 
 import { Container } from '@/components/Container'
@@ -7,14 +9,13 @@ import { FadeIn } from '@/components/FadeIn'
 import { AbstractFaces } from '@/components/illustrations/AbstractFaces'
 import { RootLayout } from '@/components/RootLayout'
 import { EXECUTIVE_FAQ } from '@/data/faq-content'
-import { generatePageMetadata, PAGE_METADATA } from '@/lib/metadata-config'
 import {
   generateArticleSchema,
   generateServiceSchema,
 } from '@/lib/structured-data'
 
 // Screen 1: The Hook
-function ScreenOne() {
+function ScreenOne({ qualifyId }: { qualifyId: string }) {
   return (
     <section className="flex min-h-screen items-center justify-center pt-24 pb-16">
       <Container>
@@ -26,7 +27,7 @@ function ScreenOne() {
             Yours doesn&apos;t have to.
           </p>
           <a
-            href="#qualify"
+            href={`#${qualifyId}`}
             className="inline-block rounded-lg bg-[#003C71] px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-[#002A52]"
           >
             Evaluate Strategic Fit
@@ -38,7 +39,7 @@ function ScreenOne() {
 }
 
 // Screen 2: The Timeline
-function ScreenTwo() {
+function ScreenTwo({ evidenceId }: { evidenceId: string }) {
   return (
     <section className="flex min-h-screen items-center justify-center py-16">
       <Container>
@@ -65,7 +66,7 @@ function ScreenTwo() {
             without systematic intervention reduces your probability of success.
           </p>
           <a
-            href="#evidence"
+            href={`#${evidenceId}`}
             className="inline-block rounded-lg border-2 border-[#003C71] px-8 py-4 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
           >
             Understand Your Timeline
@@ -77,10 +78,10 @@ function ScreenTwo() {
 }
 
 // Screen 3: The Proof
-function ScreenThree() {
+function ScreenThree({ evidenceId }: { evidenceId: string }) {
   return (
     <section
-      id="evidence"
+      id={evidenceId}
       className="flex min-h-screen items-center justify-center py-16"
     >
       <Container>
@@ -114,10 +115,10 @@ function ScreenThree() {
 }
 
 // Screen 4: The Qualification
-function ScreenFour() {
+function ScreenFour({ qualifyId, beginId }: { qualifyId: string; beginId: string }) {
   return (
     <section
-      id="qualify"
+      id={qualifyId}
       className="flex min-h-screen items-center justify-center py-16"
     >
       <Container>
@@ -157,7 +158,7 @@ function ScreenFour() {
               Not sure? Get Diagnostic Resources
             </a>
             <a
-              href="#begin"
+              href={`#${beginId}`}
               className="inline-block rounded-lg bg-[#003C71] px-6 py-3 font-medium text-white transition-colors hover:bg-[#002A52]"
             >
               Ready? Check Your Eligibility
@@ -170,10 +171,10 @@ function ScreenFour() {
 }
 
 // Screen 5: The Close
-function ScreenFive() {
+function ScreenFive({ beginId }: { beginId: string }) {
   return (
     <section
-      id="begin"
+      id={beginId}
       className="flex min-h-screen items-center justify-center py-16"
     >
       <Container>
@@ -210,9 +211,14 @@ function ScreenFive() {
   )
 }
 
-export const metadata: Metadata = generatePageMetadata(PAGE_METADATA.home)
-
 export default function Home() {
+  // Generate unique IDs for sections
+  const evidenceId = useId()
+  const qualifyId = useId()
+  const beginId = useId()
+  const serviceSchemaId = useId()
+  const articleSchemaId = useId()
+  
   // Select top FAQs for landing page
   const selectedFAQs = [
     EXECUTIVE_FAQ[0].questions[0], // Why do 40% fail?
@@ -245,7 +251,7 @@ export default function Home() {
   return (
     <>
       <Script
-        id="landing-service-schema"
+        id={serviceSchemaId}
         type="application/ld+json"
         /* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML for SEO */
         dangerouslySetInnerHTML={{
@@ -254,7 +260,7 @@ export default function Home() {
         strategy="afterInteractive"
       />
       <Script
-        id="landing-article-schema"
+        id={articleSchemaId}
         type="application/ld+json"
         /* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML for SEO */
         dangerouslySetInnerHTML={{
@@ -285,11 +291,11 @@ export default function Home() {
             />
           </div>
 
-          <ScreenOne />
-          <ScreenTwo />
-          <ScreenThree />
-          <ScreenFour />
-          <ScreenFive />
+          <ScreenOne qualifyId={qualifyId} />
+          <ScreenTwo evidenceId={evidenceId} />
+          <ScreenThree evidenceId={evidenceId} />
+          <ScreenFour qualifyId={qualifyId} beginId={beginId} />
+          <ScreenFive beginId={beginId} />
 
           {/* FAQ Section */}
           <FAQSection
