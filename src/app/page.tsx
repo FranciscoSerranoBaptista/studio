@@ -20,17 +20,22 @@ function ScreenOne({ qualifyId }: { qualifyId: string }) {
     <section className="flex min-h-screen items-center justify-center pt-24 pb-16">
       <Container>
         <FadeIn immediate className="text-center">
-          <h1 className="sm:text-8xl mb-8 font-display text-6xl font-medium tracking-tight text-[#003C71]">
-            40% of executive transitions fail.
+          <h1 className="sm:text-7xl mb-8 font-display text-5xl font-medium tracking-tight text-[#003C71]">
+            Inner shifts. Outer victories.
           </h1>
-          <p className="mb-12 text-2xl font-medium text-[#003C71]">
-            Yours doesn&apos;t have to.
+          <p className="mb-6 text-xl text-[#333333] max-w-2xl mx-auto">
+            I work with senior leaders who are brilliant at their jobs<br/>
+            and exhausted by the performance.
+          </p>
+          <p className="mb-12 text-xl text-[#333333] max-w-2xl mx-auto">
+            If you're tired of pretending everything's under control,<br/>
+            we should talk.
           </p>
           <a
             href={`#${qualifyId}`}
             className="inline-block rounded-lg bg-[#003C71] px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-[#002A52]"
           >
-            Evaluate Strategic Fit
+            See if we're a fit
           </a>
         </FadeIn>
       </Container>
@@ -38,38 +43,39 @@ function ScreenOne({ qualifyId }: { qualifyId: string }) {
   )
 }
 
-// Screen 2: The Timeline
+// Screen 2: The Problem
 function ScreenTwo({ evidenceId }: { evidenceId: string }) {
   return (
     <section className="flex min-h-screen items-center justify-center py-16">
       <Container>
         <FadeIn className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-8 font-display text-4xl font-medium text-[#003C71]">
-            The timeline already started
+          <h2 className="mb-12 font-display text-4xl font-medium text-[#003C71]">
+            You know the feeling.
           </h2>
-          <div className="mb-12 space-y-6 text-xl text-[#333333]">
+          <div className="mb-12 space-y-6 text-xl text-[#333333] text-left max-w-2xl mx-auto">
             <p>
-              <strong className="text-[#003C71]">Day 30:</strong> They&apos;re
-              forming opinions
+              Walking into executive meetings over-prepared but under-confident.
             </p>
             <p>
-              <strong className="text-[#003C71]">Day 60:</strong> They&apos;re
-              making decisions
+              Managing down brilliantly while avoiding difficult conversations with peers.
             </p>
             <p>
-              <strong className="text-[#003C71]">Day 90:</strong> The verdict is
-              set
+              Success on paper while something essential dies inside.
             </p>
           </div>
-          <p className="mb-8 text-lg text-[#666666]">
-            Your stakeholders form irreversible judgments by Day 90. Every day
-            without systematic intervention reduces your probability of success.
-          </p>
+          <div className="mb-8 space-y-4 text-lg text-[#333333] max-w-2xl mx-auto">
+            <p>This isn't about competence.<br/>
+            You're already competent.</p>
+            <p>It's about the parts of you at war with each other.<br/>
+            The performer vs. the person.<br/>
+            The achiever vs. the human.<br/>
+            The expert vs. the learner.</p>
+          </div>
           <a
             href={`#${evidenceId}`}
             className="inline-block rounded-lg border-2 border-[#003C71] px-8 py-4 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
           >
-            Understand Your Timeline
+            How we work with this
           </a>
         </FadeIn>
       </Container>
@@ -77,7 +83,7 @@ function ScreenTwo({ evidenceId }: { evidenceId: string }) {
   )
 }
 
-// Screen 3: The Proof
+// Screen 3: The Approach
 function ScreenThree({ evidenceId }: { evidenceId: string }) {
   return (
     <section
@@ -86,27 +92,36 @@ function ScreenThree({ evidenceId }: { evidenceId: string }) {
     >
       <Container>
         <FadeIn className="mx-auto max-w-4xl text-center">
-          <blockquote className="mb-8">
-            <p className="mb-6 text-3xl text-[#333333]">
-              &ldquo;My eye stopped twitching. The sleep disorders stopped.
-              <br />
-              But more importantly, I stopped creating my own resistance.&rdquo;
-            </p>
-            <cite className="text-lg font-medium text-[#003C71] not-italic">
-              — Technology Executive, Month 3 of transition
-            </cite>
-          </blockquote>
+          <h2 className="mb-12 font-display text-4xl font-medium text-[#003C71]">
+            We don't work on your leadership.<br/>
+            We work on your relationship with yourself.
+          </h2>
 
-          <div className="mb-12 text-center">
-            <span className="text-4xl font-bold text-[#004225]">87%</span>
-            <span className="ml-2 text-lg text-[#333333]">success metric</span>
+          <div className="mb-12 space-y-6 text-lg text-[#333333] max-w-2xl mx-auto">
+            <p>
+              When the inner critics quiet down,<br/>
+              confidence isn't performed anymore.
+            </p>
+            <p>
+              When the perfectionist relaxes,<br/>
+              excellence flows without exhaustion.
+            </p>
+            <p>
+              When all parts of you align,<br/>
+              the external naturally follows.
+            </p>
           </div>
 
+          <p className="mb-8 text-xl font-medium text-[#003C71]">
+            Inner shifts. Outer victories.<br/>
+            That's the only sequence that works.
+          </p>
+
           <a
-            href="/work"
+            href="/about"
             className="inline-block rounded-lg border-2 border-[#003C71] px-8 py-4 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
           >
-            See More Evidence
+            How this works
           </a>
         </FadeIn>
       </Container>
@@ -123,47 +138,64 @@ function ScreenFour({ qualifyId, beginId }: { qualifyId: string; beginId: string
     >
       <Container>
         <FadeIn className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-8 font-display text-4xl font-medium text-[#003C71]">
-            This is for you if:
+          <h2 className="mb-12 font-display text-4xl font-medium text-[#003C71]">
+            This work is for senior leaders who:
           </h2>
-          <div className="mx-auto mb-8 max-w-2xl space-y-4 text-left text-lg text-[#333333]">
+          <div className="mx-auto mb-12 max-w-2xl space-y-4 text-left text-lg text-[#333333]">
             <div className="flex items-start">
-              <span className="mr-4 text-xl text-[#003C71]">✓</span>
-              <span>€50M+ P&L responsibility</span>
+              <span className="mr-4 text-xl text-[#003C71]">•</span>
+              <span>Are successful but sense something's off</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-xl text-[#003C71]">✓</span>
-              <span>100+ team members</span>
+              <span className="mr-4 text-xl text-[#003C71]">•</span>
+              <span>Ready to examine what's really running the show</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-xl text-[#003C71]">✓</span>
-              <span>Board/ExCo exposure</span>
+              <span className="mr-4 text-xl text-[#003C71]">•</span>
+              <span>Willing to be uncomfortable for the sake of growth</span>
             </div>
             <div className="flex items-start">
-              <span className="mr-4 text-xl text-[#003C71]">✓</span>
-              <span>First 18 months or major expansion</span>
+              <span className="mr-4 text-xl text-[#003C71]">•</span>
+              <span>Done with quick fixes and tactical patches</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-4 text-xl text-[#003C71]">•</span>
+              <span>Choose depth over comfort</span>
             </div>
           </div>
 
-          <p className="mb-8 text-lg text-[#666666]">
-            Not everyone qualifies. The stakes must justify systematic
-            intervention.
-          </p>
-
-          <div className="flex justify-center gap-4">
-            <a
-              href="/resources"
-              className="inline-block rounded-lg border-2 border-[#003C71] px-6 py-3 font-medium text-[#003C71] transition-colors hover:bg-[#003C71] hover:text-white"
-            >
-              Not sure? Get Diagnostic Resources
-            </a>
-            <a
-              href={`#${beginId}`}
-              className="inline-block rounded-lg bg-[#003C71] px-6 py-3 font-medium text-white transition-colors hover:bg-[#002A52]"
-            >
-              Ready? Check Your Eligibility
-            </a>
+          <h3 className="mb-8 font-display text-2xl font-medium text-[#003C71]">
+            This work is NOT for those who:
+          </h3>
+          <div className="mx-auto mb-12 max-w-2xl space-y-4 text-left text-lg text-[#666666]">
+            <div className="flex items-start">
+              <span className="mr-4 text-xl">×</span>
+              <span>Want validation that they're fine as-is</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-4 text-xl">×</span>
+              <span>Need strategies without self-examination</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-4 text-xl">×</span>
+              <span>Believe the problem is everyone else</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-4 text-xl">×</span>
+              <span>Think vulnerability is weakness</span>
+            </div>
+            <div className="flex items-start">
+              <span className="mr-4 text-xl">×</span>
+              <span>Are here because their company sent them</span>
+            </div>
           </div>
+
+          <a
+            href={`#${beginId}`}
+            className="inline-block rounded-lg bg-[#003C71] px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-[#002A52]"
+          >
+            Ready for real work?
+          </a>
         </FadeIn>
       </Container>
     </section>
@@ -179,31 +211,36 @@ function ScreenFive({ beginId }: { beginId: string }) {
     >
       <Container>
         <FadeIn className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-8 font-display text-5xl font-medium text-[#003C71]">
-            Your stakeholders are forming permanent judgments
+          <h2 className="mb-12 font-display text-4xl font-medium text-[#003C71]">
+            Ready for real work?
           </h2>
 
-          <p className="mb-12 text-xl text-[#333333]">
-            Every day without systematic intervention reduces your probability
-            of success. Architecture ensures the narrative serves your
-            objectives.
-          </p>
+          <div className="mb-12 space-y-6 text-lg text-[#333333] text-left max-w-2xl mx-auto">
+            <p>First, ask yourself:</p>
+            <div className="ml-6 space-y-3">
+              <p>• Am I choosing this or is my company?</p>
+              <p>• Am I ready to see what I haven't wanted to see?</p>
+              <p>• Will I show up consistently even when uncomfortable?</p>
+            </div>
+            <p className="text-center mt-8">If yes to all three:</p>
+          </div>
 
           <div className="mb-12">
-            <p className="mb-2 text-2xl text-[#003C71]">Francisco Baptista</p>
-            <p className="mb-1 text-lg text-[#333333]">
-              Executive Transition Advisor
-            </p>
-            <p className="text-lg text-[#333333]">
-              200+ Senior Leaders | 87% Success Rate
-            </p>
+            <p className="mb-4 text-xl text-[#003C71]">Simple and clear:</p>
+            <div className="space-y-2 text-lg text-[#333333] max-w-xl mx-auto">
+              <p>We meet.</p>
+              <p>We go deeper than you expected.</p>
+              <p>You see patterns you couldn't see alone.</p>
+              <p>We work with what emerges.</p>
+            </div>
+            <p className="mt-8 text-sm text-[#666666]">Sessions by application only.</p>
           </div>
 
           <a
-            href="/assessment"
+            href="/contact"
             className="inline-block rounded-lg bg-[#003C71] px-12 py-4 text-xl font-medium text-white transition-colors hover:bg-[#002A52]"
           >
-            Request Strategic Assessment
+            Apply to work together
           </a>
         </FadeIn>
       </Container>
@@ -230,21 +267,21 @@ export default function Home() {
   ]
 
   const serviceSchema = generateServiceSchema(
-    'Executive Transition Architecture',
-    'Systematic methodology preventing the 40% failure rate in executive transitions',
+    'Inner Shifts. Outer Victories.',
+    'Work with senior leaders on the relationship with themselves to create authentic leadership',
     [
-      'Transition Risk Analysis',
-      'Stakeholder Mapping',
-      'Integration Engineering',
-      '90-Day Action Plan',
-      'Weekly Strategic Advisory',
+      'Inner Work Sessions',
+      'Leadership Integration',
+      'Authentic Performance',
+      'Self-Relationship Coaching',
+      'Executive Transformation',
     ],
     '€€€€',
   )
 
   const articleSchema = generateArticleSchema(
-    'Executive Transitions Have a 40% Failure Rate - The Patterns Are Predictable',
-    'Systematic methodology for preventing executive transition failure. From 40% industry failure rate to 87% success rate through Executive Transition Architecture.',
+    'Inner Shifts. Outer Victories - Leadership Through Self-Integration',
+    'Work with senior leaders who are brilliant at their jobs and exhausted by the performance. Real work on the relationship with yourself.',
     new Date().toISOString(),
   )
 
@@ -274,11 +311,11 @@ export default function Home() {
         <main itemScope itemType="https://schema.org/WebPage">
           <meta
             itemProp="name"
-            content="Francisco Baptista - Executive Transition Architect"
+            content="Francisco Baptista - Inner Shifts. Outer Victories."
           />
           <meta
             itemProp="description"
-            content="Executive transitions have a 40% failure rate. Systematic methodology achieving 87% success rate."
+            content="Work with senior leaders who are brilliant at their jobs and exhausted by the performance."
           />
 
           {/* Unified Background Pattern */}
@@ -299,8 +336,8 @@ export default function Home() {
 
           {/* FAQ Section */}
           <FAQSection
-            title="Executive Transition Questions"
-            subtitle="Critical insights for Managing Directors and C-Suite executives"
+            title="Working Together"
+            subtitle="Questions from senior leaders considering inner work"
             faqs={selectedFAQs}
             className="bg-white"
           />

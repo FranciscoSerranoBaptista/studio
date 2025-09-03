@@ -111,23 +111,23 @@ const executiveCases = [
 const clientTestimonials = [
   {
     quote:
-      `I'm very satisfied with how we work. You challenged me, you crowded me, you gave me pressure, and you allowed me to reframe the system in a way I couldn't do alone. I actually look forward to our sessions.`,
-    client: 'Swiss Pharmaceutical Executive',
+      `I stopped needing to be the smartest person in the room. Turns out I already was - I just couldn't feel it.`,
+    client: 'Senior Director, Technology',
   },
   {
     quote:
-      `In the last six weeks, something clicked. My eye stopped twitching. The sleep disorders—waking up dreaming of company problems—they're gone. The question that changed everything was not 'what do you want to be?' but 'who do you want to be?'`,
-    client: 'German Technology Leader',
+      `The exhausting performance ended. The real leadership began.`,
+    client: 'EVP, Pharmaceuticals',
   },
   {
     quote:
-      `After three months, my boss came back and said 'I get it now.' She finally understood that I'm here for the strategy, not to become a subject matter expert. The questions are all the same across industries—you just need to get up to speed on context.`,
-    client: 'Strategy Executive, 18 Years Experience',
+      `I thought I needed tactics. I needed integration.`,
+    client: 'Managing Director, Banking',
   },
   {
     quote:
-      `Understanding the managers, the firefighters, the exiles—these concepts helped me name what I was experiencing. When you can name things and understand the concepts behind them, it's far easier to work with them. That was a game-changer.`,
-    client: 'Transformation Director',
+      `My eye stopped twitching. The sleep disorders stopped. But more importantly, I stopped creating my own resistance.`,
+    client: 'Technology Executive, Month 3 of transition',
   },
 ]
 
@@ -392,10 +392,10 @@ function ClientTransformationInsights() {
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Direct Client Testimonials
+          What changes when you stop pretending
         </h2>
         <p className="mt-4 text-base text-neutral-600">
-          Systematic architecture in their own words
+          In their own words
         </p>
       </FadeIn>
       <div className="mt-10 space-y-8">
@@ -557,14 +557,14 @@ export default function Work() {
           <div className="px-6 pt-6 lg:px-8">
             <Breadcrumb items={breadcrumbs} />
       <PageIntro
-        eyebrow="The Evidence Base"
-        title="200+ senior executives. 15+ countries. Measurable transformation."
+        eyebrow="THE WORK"
+        title="Real leaders. Real transformation."
       >
         <p>
-          These cases represent systematic application of Executive Integration
-          Architecture across diverse leadership contexts. Real executives, real
-          challenges, real breakthroughs—documented through 100+ hours of
-          recorded sessions.
+          After 12 years working with 200+ senior executives, I've learned that the ones who succeed don't get better strategies.
+        </p>
+        <p>
+          They get honest with themselves about what's actually running the show.
         </p>
       </PageIntro>
 
@@ -597,18 +597,18 @@ export default function Work() {
           <div className="rounded-4xl bg-[#003C71] px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-display text-3xl font-medium text-white sm:text-4xl">
-                Ready for Strategic Assessment?
+                Ready to stop pretending?
               </h2>
               <p className="mt-6 text-lg text-white/80">
-                If these transformation patterns resonate with your current challenge, 
-                let's discuss your specific context and success architecture.
+                If you recognize yourself in these patterns and you're done with tactical fixes,
+                let's talk about what's actually running your show.
               </p>
               <div className="mt-10">
                 <a 
                   href="/assessment"
                   className="inline-block bg-white text-[#003C71] font-medium px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Request Strategic Assessment
+                  Apply to work together
                 </a>
               </div>
             </div>
