@@ -83,7 +83,7 @@ export default function Assessment() {
                 </h3>
                 <div className="mt-4 space-y-3 text-base text-[#333333]">
                   <p>• Am I choosing this or is my company?</p>
-                  <p>• Am I ready to see what I haven't wanted to see?</p>
+                  <p>• Am I ready to see what I haven&apos;t wanted to see?</p>
                   <p>• Will I show up consistently even when uncomfortable?</p>
                 </div>
                 <p className="mt-4 text-sm text-[#666666]">
@@ -98,7 +98,7 @@ export default function Assessment() {
                 <div className="mt-2 space-y-2 text-base text-[#333333]">
                   <p>We meet.</p>
                   <p>We go deeper than you expected.</p>
-                  <p>You see patterns you couldn't see alone.</p>
+                  <p>You see patterns you couldn&apos;t see alone.</p>
                   <p>We work with what emerges.</p>
                 </div>
                 <p className="mt-4 text-sm text-[#666666]">

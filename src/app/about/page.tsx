@@ -32,7 +32,7 @@ export default function About() {
           After 12 years working with 200+ senior executives, I noticed something:
         </p>
         <p>
-          The ones who succeeded weren't smarter. They weren't more strategic. They weren't better connected.
+          The ones who succeeded weren&apos;t smarter. They weren&apos;t more strategic. They weren&apos;t better connected.
         </p>
         <p>
           They were willing to stop pretending.
@@ -65,7 +65,7 @@ export default function About() {
                   Where personal patterns create professional problems.
                 </p>
                 <p>
-                  I don't help executives get better at being who they're not.
+                  I don&apos;t help executives get better at being who they&apos;re not.
                 </p>
                 <p className="text-[#003C71] font-medium">
                   I help them integrate who they actually are.
@@ -105,16 +105,16 @@ export default function About() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="space-y-6 text-lg text-white/90 mb-10">
                 <p>
-                  If you're ready to stop performing and start integrating,
+                  If you&apos;re ready to stop performing and start integrating,
                 </p>
                 <p>
-                  If you're done with quick fixes and ready for real work,
+                  If you&apos;re done with quick fixes and ready for real work,
                 </p>
                 <p>
                   If you choose depth over comfort,
                 </p>
                 <p className="text-xl font-medium text-white">
-                  Let's talk.
+                  Let&apos;s talk.
                 </p>
               </div>
               <div className="mt-10">

@@ -28,14 +28,14 @@ function ScreenOne({ qualifyId }: { qualifyId: string }) {
             and exhausted by the performance.
           </p>
           <p className="mb-12 text-xl text-[#333333] max-w-2xl mx-auto">
-            If you're tired of pretending everything's under control,<br/>
+            If you&apos;re tired of pretending everything&apos;s under control,<br/>
             we should talk.
           </p>
           <a
             href={`#${qualifyId}`}
             className="inline-block rounded-lg bg-[#003C71] px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-[#002A52]"
           >
-            See if we're a fit
+            See if we&apos;re a fit
           </a>
         </FadeIn>
       </Container>
@@ -64,9 +64,9 @@ function ScreenTwo({ evidenceId }: { evidenceId: string }) {
             </p>
           </div>
           <div className="mb-8 space-y-4 text-lg text-[#333333] max-w-2xl mx-auto">
-            <p>This isn't about competence.<br/>
-            You're already competent.</p>
-            <p>It's about the parts of you at war with each other.<br/>
+            <p>This isn&apos;t about competence.<br/>
+            You&apos;re already competent.</p>
+            <p>It&apos;s about the parts of you at war with each other.<br/>
             The performer vs. the person.<br/>
             The achiever vs. the human.<br/>
             The expert vs. the learner.</p>
@@ -93,14 +93,14 @@ function ScreenThree({ evidenceId }: { evidenceId: string }) {
       <Container>
         <FadeIn className="mx-auto max-w-4xl text-center">
           <h2 className="mb-12 font-display text-4xl font-medium text-[#003C71]">
-            We don't work on your leadership.<br/>
+            We don&apos;t work on your leadership.<br/>
             We work on your relationship with yourself.
           </h2>
 
           <div className="mb-12 space-y-6 text-lg text-[#333333] max-w-2xl mx-auto">
             <p>
               When the inner critics quiet down,<br/>
-              confidence isn't performed anymore.
+              confidence isn&apos;t performed anymore.
             </p>
             <p>
               When the perfectionist relaxes,<br/>
@@ -114,7 +114,7 @@ function ScreenThree({ evidenceId }: { evidenceId: string }) {
 
           <p className="mb-8 text-xl font-medium text-[#003C71]">
             Inner shifts. Outer victories.<br/>
-            That's the only sequence that works.
+            That&apos;s the only sequence that works.
           </p>
 
           <a
@@ -144,11 +144,11 @@ function ScreenFour({ qualifyId, beginId }: { qualifyId: string; beginId: string
           <div className="mx-auto mb-12 max-w-2xl space-y-4 text-left text-lg text-[#333333]">
             <div className="flex items-start">
               <span className="mr-4 text-xl text-[#003C71]">•</span>
-              <span>Are successful but sense something's off</span>
+              <span>Are successful but sense something&apos;s off</span>
             </div>
             <div className="flex items-start">
               <span className="mr-4 text-xl text-[#003C71]">•</span>
-              <span>Ready to examine what's really running the show</span>
+              <span>Ready to examine what&apos;s really running the show</span>
             </div>
             <div className="flex items-start">
               <span className="mr-4 text-xl text-[#003C71]">•</span>
@@ -170,7 +170,7 @@ function ScreenFour({ qualifyId, beginId }: { qualifyId: string; beginId: string
           <div className="mx-auto mb-12 max-w-2xl space-y-4 text-left text-lg text-[#666666]">
             <div className="flex items-start">
               <span className="mr-4 text-xl">×</span>
-              <span>Want validation that they're fine as-is</span>
+              <span>Want validation that they&apos;re fine as-is</span>
             </div>
             <div className="flex items-start">
               <span className="mr-4 text-xl">×</span>
@@ -219,7 +219,7 @@ function ScreenFive({ beginId }: { beginId: string }) {
             <p>First, ask yourself:</p>
             <div className="ml-6 space-y-3">
               <p>• Am I choosing this or is my company?</p>
-              <p>• Am I ready to see what I haven't wanted to see?</p>
+              <p>• Am I ready to see what I haven&apos;t wanted to see?</p>
               <p>• Will I show up consistently even when uncomfortable?</p>
             </div>
             <p className="text-center mt-8">If yes to all three:</p>
@@ -230,7 +230,7 @@ function ScreenFive({ beginId }: { beginId: string }) {
             <div className="space-y-2 text-lg text-[#333333] max-w-xl mx-auto">
               <p>We meet.</p>
               <p>We go deeper than you expected.</p>
-              <p>You see patterns you couldn't see alone.</p>
+              <p>You see patterns you couldn&apos;t see alone.</p>
               <p>We work with what emerges.</p>
             </div>
             <p className="mt-8 text-sm text-[#666666]">Sessions by application only.</p>

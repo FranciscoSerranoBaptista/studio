@@ -36,7 +36,7 @@ function TheProcess() {
       <div className="space-y-8 text-lg text-[#333333] max-w-2xl mx-auto text-center">
         <p>We meet.</p>
         <p>We go deeper than you expected.</p>
-        <p>You see patterns you couldn't see alone.</p>
+        <p>You see patterns you couldn&apos;t see alone.</p>
         <p>We work with what emerges.</p>
       </div>
       
@@ -58,14 +58,14 @@ function TheWork() {
       <div className="space-y-6 text-base text-[#333333] max-w-3xl mx-auto">
         <div className="space-y-4">
           <p>No frameworks to memorize.</p>
-          <p>No homework you won't do.</p>
+          <p>No homework you won&apos;t do.</p>
           <p>No pretending this is easy.</p>
           <p>Just real work with real results.</p>
         </div>
         
         <div className="bg-[#F5F5F5] rounded-lg p-6 mt-8">
           <p className="font-medium text-[#003C71] mb-2">Sessions by application only.</p>
-          <p className="text-sm">This isn't for everyone. The work requires readiness and commitment to look at what you haven't wanted to see.</p>
+          <p className="text-sm">This isn&apos;t for everyone. The work requires readiness and commitment to look at what you haven&apos;t wanted to see.</p>
         </div>
       </div>
     </Section>
@@ -88,7 +88,7 @@ export default function Process() {
     <RootLayout>
       <PageIntro eyebrow="HOW WE WORK" title="Simple and clear">
         <p>
-          No frameworks to memorize. No homework you won't do. No pretending this is easy.
+          No frameworks to memorize. No homework you won&apos;t do. No pretending this is easy.
         </p>
         <p>
           Just real work with real results.
@@ -112,7 +112,7 @@ export default function Process() {
                 <p>First, ask yourself:</p>
                 <div className="space-y-2 text-base">
                   <p>• Am I choosing this or is my company?</p>
-                  <p>• Am I ready to see what I haven't wanted to see?</p>
+                  <p>• Am I ready to see what I haven&apos;t wanted to see?</p>
                   <p>• Will I show up consistently even when uncomfortable?</p>
                 </div>
                 <p>If yes to all three:</p>
