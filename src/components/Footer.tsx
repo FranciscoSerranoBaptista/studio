@@ -69,18 +69,18 @@ function AssessmentCallToAction() {
         Francisco Baptista
       </h2>
       <p className="mt-2 text-xs text-[#333333]">
-        Executive Transition Advisor
+        Inner shifts. Outer victories.
       </p>
       <p className="mt-4 text-sm text-[#333333]">
-        200+ executives. 87% success rate. Systematic intervention for
-        high-stakes transitions.
+        Work with senior leaders who are brilliant at their jobs
+        and exhausted by the performance.
       </p>
       <div className="mt-6">
         <Link
           href="/assessment"
           className="inline-flex items-center rounded-lg bg-[#003C71] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#002A52]"
         >
-          Request Assessment
+          Apply to work together
           <ArrowIcon className="ml-2 w-4" />
         </Link>
       </div>
@@ -103,8 +103,7 @@ export function Footer() {
             <Logo className="h-8" />
           </Link>
           <p className="text-sm text-[#666666]">
-            © {new Date().getFullYear()} Francisco Baptista | Executive
-            Transition Advisor
+            © {new Date().getFullYear()} Francisco Baptista | Inner shifts. Outer victories.
           </p>
         </div>
       </FadeIn>
